@@ -54,9 +54,9 @@ the API.
 
 **Objective:** User is able to see own profile and Post's author's profile
 
-### Phase 5: Allow Styling in Posts (1 day, W2 Th 6pm)
+### Phase 5: Search Posts (1 day, W2 Th 6pm)
 
-**Objective:** Allow styling of posts.
+**Objective:** Allow searching of posts.
 
 ### Phase 6: - final styling of the web (1 day, W2 F 6pm)
 
