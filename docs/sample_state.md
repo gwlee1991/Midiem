@@ -1,9 +1,11 @@
-```{ currentUser:
-  { id: 1,
-    username: "username",
-    image_url:"",
-  },
-  errors: [],
+```{session: {
+      currentUser:{
+        id: 1,
+        username: "username",
+        image_url:"",
+        },
+      errors: [],
+  }
   posts: {
     1: {
       id: 1,
@@ -26,7 +28,7 @@
         }
       }
     },
-  post: {
+  currentPost: {
     id: 1,
     title: "",
     body: "",
@@ -36,8 +38,9 @@
       username: "",
       image_url: "",
       },
-    comments:
-    { 1: {
+    }
+  comments:{
+    1: {
       id: 1,
       body: "Vayne",
       author: {
