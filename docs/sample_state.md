@@ -1,4 +1,4 @@
-{ currentUser:
+```{ currentUser:
   { id: 1,
     username: "username",
     image_url:"",
@@ -65,4 +65,4 @@
       title: "Overwatch"
     }
   }
-}
+}```
