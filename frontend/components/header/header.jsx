@@ -13,33 +13,36 @@ class Header extends React.Component {
     renderLinks(){
         if (this.props.currentUser === null){
             return (
-                <div>
-                    <Link to='/login'>Log In</Link>
-                    <Link to='/signup'>Sign Up</Link>
+                <div className='auth-links'>
+                    <Link to='/login' className='login-link'>Log In</Link>
+                    &nbsp;or&nbsp;
+                    <Link to='/signup' className='signup-link'>Sign Up</Link>
                 </div>
             )
         } else {
             return (
-                <div>
-                    <h2>{this.props.currentUser.username}</h2>
-                    <button onClick={this.props.logout}>Log Out</button>
+                <div className='user-interface'>
+                    <h2 className='username'>{this.props.currentUser.username}</h2>
+                    <button onClick={this.props.logout} className='logout-button'>Log Out</button>
                 </div>
             )
         }
     }
 
+
+
     renderDefault(){
         return (
-            <div>
-                <span>Logo</span>
-                <span>Midiem</span>
+            <div className='logo'>
+                <Link to='/' className='logo-img'><img src="http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500414495/logo_dlhocm.png" height="10" width="10" /></Link>
+                <Link to='/' className='logo-text'>Midiem</Link>
             </div>
         )
     }
 
     render(){
         return (
-            <header>
+            <header className='header-nav'>
                 {this.renderDefault()}
                 {this.renderLinks()}
             </header>

@@ -39,36 +39,55 @@ class SessionForm extends React.Component {
       this.props.processForm(user);
   }
 
+  renderErrors(){
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+                {error}
+            </li>
+        ))}
+      </ul>
+  );
+}
+
   render(){
     if (this.props.formType === "login") {
-      return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <h2>Log In</h2>
-            <input
-              type="text"
-              value={this.state.username}
-              placeholder="username"
-              onChange={this.update('username')}
-            />
-            <input
-              type="password"
-              value={this.state.password}
-              placeholder='password'
-              onChange={this.update('password')}
-            />
-          <br />
-          <input type="submit" value="Log In" />
-          <p>or</p>
-          <input type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
-          </form>
+        return (
+        <div className='body-without-header'>
+
+            <form onSubmit={this.handleSubmit} className='log-in-form'>
+                <h1>Midiem</h1>
+                <h2>Share your stories with the world</h2>
+                <h3>Log In</h3>
+                {this.renderErrors()}
+                <input
+                    type="text"
+                    value={this.state.username}
+                    placeholder="username"
+                    onChange={this.update('username')}
+                />
+                <input
+                    type="password"
+                    value={this.state.password}
+                    placeholder='password'
+                    onChange={this.update('password')}
+                />
+                <br />
+                <input type="submit" value="Log In" />
+                <p>or</p>
+                <input type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
+            </form>
         </div>
       )
     } else {
       return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <h2>Sign Up</h2>
+        <div className='body-without-header'>
+          <form onSubmit={this.handleSubmit} className='sign-up-form'>
+            <h1>Midiem</h1>
+            <h2>Share your stories with the world</h2>
+            <h3>Sign Up</h3>
+            {this.renderErrors()}
             <input
               type="text"
               value={this.state.username}
