@@ -8,7 +8,8 @@ class SessionForm extends React.Component {
       username: "",
       password: ""
     };
-    console.log(this.props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   update(input){
@@ -17,11 +18,32 @@ class SessionForm extends React.Component {
     });
   }
 
+  componentWillReceiveProps(nextProps){
+      if(nextProps.loggedIn){
+          this.props.history.push('/');
+      }
+  }
+
+  handleSubmit(e){
+      e.preventDefault();
+      const user = this.state;
+      this.props.processForm(user);
+  }
+
+  handleDemoLogin(e){
+      e.preventDefault();
+      const user = {
+          username: "guest",
+          password: "password"
+      };
+      this.props.processForm(user);
+  }
+
   render(){
     if (this.props.formType === "login") {
       return (
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <h2>Log In</h2>
             <input
               type="text"
@@ -38,14 +60,14 @@ class SessionForm extends React.Component {
           <br />
           <input type="submit" value="Log In" />
           <p>or</p>
-          <input type="submit" value="Demo Login!" />
+          <input type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
           </form>
         </div>
       )
     } else {
       return (
         <div>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <h2>Sign Up</h2>
             <input
               type="text"
@@ -63,7 +85,7 @@ class SessionForm extends React.Component {
           <input type="submit" value="Sign Up" />
           <br />
           <p>or</p>
-          <input type="submit" value="Demo Login!" />
+          <input type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
           </form>
         </div>
       )
