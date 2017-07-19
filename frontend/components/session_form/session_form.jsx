@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoLogin = this.handleDemoLogin.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   update(input){
@@ -24,10 +25,23 @@ class SessionForm extends React.Component {
       }
   }
 
+  handleClick(e){
+    e.preventDefault();
+    this.setState({
+      username: "",
+      password: ""
+    });
+  }
+  
+
   handleSubmit(e){
       e.preventDefault();
       const user = this.state;
       this.props.processForm(user);
+      this.setState({
+        username: "",
+        password: ""
+      });
   }
 
   handleDemoLogin(e){
@@ -36,7 +50,7 @@ class SessionForm extends React.Component {
           username: "guest",
           password: "password"
       };
-      this.props.processForm(user);
+      this.props.login(user);
   }
 
   renderErrors(){
@@ -60,6 +74,7 @@ class SessionForm extends React.Component {
                 <h1 className='form-title'>Midiem</h1>
                 <h2 className='web-description'>Share your stories with the world</h2>
                 <h3>Log In</h3>
+
                 {this.renderErrors()}
                 <input
                     className="username-input"

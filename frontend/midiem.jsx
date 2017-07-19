@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import {fetchAllTopics} from './actions/topic_actions';
+// import {fetchAllTopics} from './util/topic_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;

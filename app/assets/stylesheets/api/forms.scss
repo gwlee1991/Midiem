@@ -1,6 +1,7 @@
 
 
 .body-without-header {
+    background-position: center;
     background-image: url('http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1505/v1500424657/pexels-photo-356043_t8uyz3.jpg');
     display: flex;
     justify-content: center;
@@ -14,9 +15,11 @@
     border-radius: 25px;
     padding: 20px;
     width: 250px;
-    height: 330px;
+    min-height: 330px;
     margin: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
     
 }
 .sign-up-form {
@@ -25,9 +28,11 @@
     border-radius: 25px;
     padding: 20px;
     width: 250px;
-    height: 330px;
+    min-height: 330px;
     margin: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .username-input::placeholder {
@@ -62,6 +67,8 @@
     border: 1px solid lightgray;
     border-radius: 10px;
     padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 3px;
 }
 

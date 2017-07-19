@@ -4,15 +4,16 @@ export const RECEIVE_CURRENT_TOPIC = 'RECEIVE_CURRENT_TOPIC'
 export const RECEIVE_ALL_TOPICS = 'RECEIVE_ALL_TOPICS'
 
 //non-async
-export const receiveTopic = currentTopic => ({
+export const receiveTopic = topic => ({
     type: RECEIVE_CURRENT_TOPIC,
-    currentTopic
+    topic
 })
 
 export const receiveTopics = topics => ({
     type: RECEIVE_ALL_TOPICS,
     topics
 })
+
 
 // async
 

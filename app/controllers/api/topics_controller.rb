@@ -11,7 +11,8 @@ class Api::TopicsController < ApplicationController
     end
 
     def index
-        @topic = Topic.all
+        @topics = Topic.all
+        debugger
         render "api/topics/index"
     end
 
