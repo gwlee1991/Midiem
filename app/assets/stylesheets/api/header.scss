@@ -1,14 +1,17 @@
 
+
 .header-nav {
     display: flex;
     justify-content: space-around;
-    align-items: baseline;
-    border-bottom: 1px solid lightgrey;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    height: 80px;
 }
 
 .logo {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    margin-right: 50px;
 }
 
 .logo-text {
@@ -21,7 +24,7 @@
 .user-interface {
     display: flex;
     align-items: center;
-    justify-content: baseline;
+    justify-content: center;
 }
 
 .username {
@@ -36,10 +39,10 @@
     padding: 5px;
 }
 
-login-link:hover {
+.login-link:hover {
     color: red;
 }
 
-signup-link:hover {
+.signup-link:hover {
     color: red;
 }
