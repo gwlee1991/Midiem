@@ -1,0 +1,69 @@
+
+
+.body-without-header {
+    background-image: url('http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1505/v1500424657/pexels-photo-356043_t8uyz3.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.log-in-form {
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 25px;
+    padding: 20px;
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+    text-align: center;
+    
+}
+.sign-up-form {
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 25px;
+    padding: 20px;
+    width: 250px;
+    height: 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.username-input::placeholder {
+    color: black;
+}
+
+.password-input::placeholder {
+    color: black;
+}
+
+.username-input {
+    border: 1px solid lightgray;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.password-input {
+    border: 1px solid lightgray;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.auth-button:hover {
+    color: blue;
+}
+
+.form-title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.web-description {
+    font-size: 26px;
+}
+
+.demo-button:hover {
+   color: blue;
+}

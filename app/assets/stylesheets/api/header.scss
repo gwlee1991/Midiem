@@ -2,7 +2,7 @@
 
 .header-nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid lightgray;
     height: 80px;
@@ -24,7 +24,13 @@
 .user-interface {
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-right: 50px;
+}
+
+.auth-links {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
 }
 
 .username {
