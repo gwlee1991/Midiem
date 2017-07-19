@@ -34,7 +34,7 @@ class Header extends React.Component {
     renderDefault(){
         return (
             <div className='logo'>
-                <Link to='/' className='logo-img'><img src="http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500414495/logo_dlhocm.png" height="10" width="10" /></Link>
+                <Link to='/' className='logo-img'><img src="http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_45/v1500415014/logo_dlhocm.png" height="10" width="10" /></Link>
                 <Link to='/' className='logo-text'>Midiem</Link>
             </div>
         )
