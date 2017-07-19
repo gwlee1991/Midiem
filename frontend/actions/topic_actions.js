@@ -3,7 +3,7 @@ import * as APIUtil from '../util/topic_api_util';
 export const RECEIVE_CURRENT_TOPIC = 'RECEIVE_CURRENT_TOPIC'
 export const RECEIVE_ALL_TOPICS = 'RECEIVE_ALL_TOPICS'
 
-//non-async
+//sync
 export const receiveTopic = topic => ({
     type: RECEIVE_CURRENT_TOPIC,
     topic

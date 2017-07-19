@@ -8,9 +8,8 @@ const TopicReducer = (state = nullTopic, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_ALL_TOPICS:
-        debugger
             const topics = action.topics;
-            return merge({}, state, {topics})
+            return merge({}, state, topics)
         case RECEIVE_CURRENT_TOPIC:
             const topic = action.topic;
             return merge({}, state, {topic})

@@ -39,32 +39,32 @@
         image_url: "",
         },
       }
-    comments:{
-      1: {
-        id: 1,
-        body: "Vayne",
-        author: {
-          name: "",
-          image_url: ""
+      comments:{
+        1: {
+          id: 1,
+         body: "Vayne",
+          author: {
+            name: "",
+            image_url: ""
+            }
+          },
+        2: {
+          id: 2,
+          body: "Coding",
+          author: {
+            name: "",
+            image_url: ""
+            }
           }
         },
-      2: {
-        id: 2,
-        body: "Coding",
-        author: {
-          name: "",
-          image_url: ""
-          }
+      topics: {
+        1: {
+          id: 1,
+          title: "League"
+        },
+        2: {
+          id: 2,
+          title: "Overwatch"
         }
-      },
-    topics: {
-    1: {
-      id: 1,
-      title: "League"
-    },
-    2: {
-      id: 2,
-      title: "Overwatch"
-    }
-  }
+      }
 }```

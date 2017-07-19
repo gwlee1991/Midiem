@@ -12,7 +12,6 @@ class Api::TopicsController < ApplicationController
 
     def index
         @topics = Topic.all
-        debugger
         render "api/topics/index"
     end
 

@@ -1,6 +1,4 @@
-json.topics @topics do |topic|
-    json.set! topic.id do
-        json.id topic.id
-        json.title topic.title
-    end
+json.array! @topics do |topic|
+    json.id topic.id
+    json.title topic.title
 end

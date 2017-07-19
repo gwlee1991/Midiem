@@ -1,3 +1,18 @@
 // Place all the styles related to the api/topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.topic-navbar {
+    height: 50px;
+
+}
+
+.topic-navbar-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px lightgray solid;
+    height: 100%;
+    align-items: center;
+}
