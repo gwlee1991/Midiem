@@ -14,7 +14,7 @@
     border-radius: 25px;
     padding: 20px;
     width: 250px;
-    height: 300px;
+    height: 330px;
     margin: 20px;
     text-align: center;
     
@@ -25,7 +25,7 @@
     border-radius: 25px;
     padding: 20px;
     width: 250px;
-    height: 300px;
+    height: 330px;
     margin: 20px;
     text-align: center;
 }
@@ -51,8 +51,22 @@
     border-radius: 10px;
 }
 
+.auth-button {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 3px;
+}
+
+.demo-button {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 3px;
+}
+
 .auth-button:hover {
-    color: blue;
+    background-color: gray;
 }
 
 .form-title {
@@ -65,5 +79,5 @@
 }
 
 .demo-button:hover {
-   color: blue;
+   background-color: gray;
 }

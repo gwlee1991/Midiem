@@ -19,7 +19,7 @@
       },
     2: {
       id: 2,
-      title: "Is anything worth trying?",
+      title: "Is anything worth trying",
       image_url: "",
       topic_id: 1,
       author: {

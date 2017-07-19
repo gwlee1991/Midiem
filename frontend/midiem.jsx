@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {login} from './actions/session_actions';
+import {fetchAllTopics} from './actions/topic_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
     window.store = store;
+    window.dispatch = store.dispatch;
+    window.fetchAllTopics = fetchAllTopics;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={ store } />, root);
 });
