@@ -19,3 +19,4 @@ topic3 = Topic.create(title: "Travel")
 topic4 = Topic.create(title: "Parenting")
 
 post1 = Post.create(title: "Faker wins again", body: "Faker wins like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500508529/faker_haj29z.jpg")
+post2 = Post.create(title: "SKT wins again", body: "SKT wins again like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500578757/SKT1_vjei8b.png")

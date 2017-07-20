@@ -1,4 +1,5 @@
-json.array! @topics do |topic|
-    json.id topic.id
-    json.title topic.title
+@topics.each do |topic|
+    json.set! topic.id do
+        json.extract! topic, :id, :title
+    end
 end

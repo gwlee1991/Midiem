@@ -1,7 +1,15 @@
 import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
-const nullPosts = {};
+const nullPosts = {
+    1: {
+        title: "",
+        body: "",
+        author: {},
+        image_url: "",
+        topic_id: "",
+    }
+};
 
 const PostsReducer = (state = nullPosts, action) => {
     Object.freeze(state);

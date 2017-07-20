@@ -1,10 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import PostIndexContainer from '../posts/post_index_container';
+import PostItem from '../posts/post_item';
 
 class TopicSection extends React.Component {
+    constructor(props){
+        super(props);
+        this.filterId = this.filterId.bind(this);
+    }
+
+    filterId(posts){
+        const result = []
+        posts.forEach(post => {
+            if(post.topic_id === this.props.topic.id){
+                result.push(post);
+            }
+        })
+        return result.slice(0,2);
+    }
+
     render(){
         const {topic} = this.props;
+        const topicPosts = this.filterId(this.props.posts);
         return (
             <div className="topic-section">
                 <div className="section-header">
@@ -16,7 +32,7 @@ class TopicSection extends React.Component {
                     </Link>
                 </div>
                 <div className="section-body">
-                    <PostIndexContainer />
+                    {topicPosts.map(post => <PostItem key={post.id} post={post} />)}
                 </div>
             </div>
         )
