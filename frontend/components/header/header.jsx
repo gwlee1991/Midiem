@@ -22,7 +22,7 @@ class Header extends React.Component {
         } else {
             return (
                 <div className='user-interface'>
-                    <h2 className='username'>{this.props.currentUser.username}</h2>
+                    <button className='username'>{this.props.currentUser.username}</button>
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
                 </div>
             )

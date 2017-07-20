@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {selectAllTopics} from '../../reducers/topic_selector';
+import {selectAllTopics} from '../../reducers/selector';
 import { fetchAllTopics } from '../../actions/topic_actions';
 import TopicNav from './topic_nav';
 

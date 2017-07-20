@@ -1,7 +1,7 @@
 import * as APIUtil from '../util/topic_api_util';
 
-export const RECEIVE_CURRENT_TOPIC = 'RECEIVE_CURRENT_TOPIC'
-export const RECEIVE_ALL_TOPICS = 'RECEIVE_ALL_TOPICS'
+export const RECEIVE_CURRENT_TOPIC = 'RECEIVE_CURRENT_TOPIC';
+export const RECEIVE_ALL_TOPICS = 'RECEIVE_ALL_TOPICS';
 
 //sync
 export const receiveTopic = topic => ({
@@ -19,7 +19,7 @@ export const receiveTopics = topics => ({
 
 export const fetchTopic = id => dispatch => (
     APIUtil.fetchTopic(id).then(topic => (
-        dispatch(receiveTopic(user))
+        dispatch(receiveTopic(topic))
     ))
 );
 
