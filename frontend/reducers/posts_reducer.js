@@ -1,9 +1,7 @@
-import { RECEIVE_ALL_POSTS } from '../actions/topic_actions';
+import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
-const nullPosts = {
-    null: {}
-}
+const nullPosts = {};
 
 const PostsReducer = (state = nullPosts, action) => {
     Object.freeze(state);

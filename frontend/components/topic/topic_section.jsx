@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PostIndexContainer from '../posts/post_index_container';
 
 class TopicSection extends React.Component {
     render(){
@@ -15,16 +16,7 @@ class TopicSection extends React.Component {
                     </Link>
                 </div>
                 <div className="section-body">
-                    <div className="posts">
-                        Post1
-                        image
-                        author info
-                    </div> 
-                    <div className="posts">
-                        Post2
-                        image
-                        author info
-                    </div>
+                    <PostIndexContainer />
                 </div>
             </div>
         )

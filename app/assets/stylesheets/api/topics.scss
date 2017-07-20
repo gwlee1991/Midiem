@@ -5,6 +5,11 @@
 
 .topic-navbar {
     height: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+
 }
 
 .topic-navbar-ul {
@@ -12,6 +17,7 @@
     flex-direction: row;
     justify-content: space-around;
     border-bottom: 1px lightgray solid;
+    border-top: 1px lightgray solid;
     height: 100%;
     align-items: center;
 }
@@ -21,10 +27,8 @@
 }
 
 .topic-section {
-    margin: 10px;
-    margin-right: 100px;
-    margin-left: 100px;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -32,7 +36,7 @@
 .section-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
 }
 
