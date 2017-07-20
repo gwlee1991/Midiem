@@ -22,6 +22,7 @@
   * DELETE /api/posts/:id
 
 ### Comments
+  * GET /api/posts/comments
   * POST /api/posts/:post_id/comments
   * PATCH /api/comments/:id
   * DELETE /api/comments/:id

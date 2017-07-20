@@ -6,7 +6,7 @@ class Api::TopicsController < ApplicationController
     end
 
     def destroy
-        @topic = Topic.find(topic[:id])
+        @topic = Topic.find(params[:id])
         @topic.destroy
     end
 
@@ -16,7 +16,7 @@ class Api::TopicsController < ApplicationController
     end
 
     def show
-        @topic = Topic.find(topic[:id])
+        @topic = Topic.find(params[:id])
         if @topic
             render "api/topics/show"
         else
