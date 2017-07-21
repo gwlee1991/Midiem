@@ -1,11 +1,9 @@
 import React from 'react';
 
-
 class PostForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            id: "",
             title: "",
             author_id: this.props.currentUser.id,
             body: "",
@@ -14,18 +12,26 @@ class PostForm extends React.Component{
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
+        this.upload = this.upload.bind(this);
     }
 
 
     handleSubmit(e) {
         e.preventDefault();
         const post = this.state;
+        console.log(post);
         this.props.createPost(post).then(post => this.props.history.push(`/posts/${post.id}`));
     }
 
-
     update(field) {
-        return (e) => this.setState({ [field] : e.target.value });
+        return (e) => {
+            this.setState({ [field] : e.target.value })
+        };
+    }
+
+    componentDidMount(){
+        this.props.fetchAllTopics();
     }
 
     upload(e){
@@ -33,19 +39,30 @@ class PostForm extends React.Component{
         cloudinary.openUploadWidget(
             window.cloudinary_options,
             ((error, images) => {
+                console.log(error)
                 if(error === null) {
-                    this.setState = {
+                    this.setState({
                         image_url: images[0].url
-                    }
+                    })
                 }
             })
         )
     }
 
+    renderTopicDropbox(){
+        if(this.props.topics.length > 0){
+            return (
+                <select value={this.state.topic_id} onChange={this.update('topic_id')} >
+                    {this.props.topics.map(topic => <option key={topic.id}value={topic.id}>{topic.title}</option>)}
+                </select>
+            )
+        }
+    }
+
     render(){
         return (
             <div className="new-post-form">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <section className='new-post-title-holder'>
                         <input
                             type="text"
@@ -65,8 +82,13 @@ class PostForm extends React.Component{
                             onChange={this.update('body')} 
                         />
                     </section>
-                    <button onClick={this.upload}>Upload Image</button>
                     <br />
+                    <div className="topic-chooser">
+                        <label>Please select a topic for your story</label>
+                        <br />
+                        {this.renderTopicDropbox()}
+                    </div>
+                    <button onClick={this.upload}>Upload Image</button>
                     <div>
                         {this.state.image_url === '' ? null :
                              <div>

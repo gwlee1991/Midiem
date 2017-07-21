@@ -1,14 +1,19 @@
 import {connect} from 'react-redux';
 import PostForm from './post_form';
+import {createPost} from '../../actions/post_actions';
+import {fetchAllTopics} from '../../actions/topic_actions';
+import {selectAllTopics} from '../../reducers/selector';
 
 const mapStateToProps = state => {
     return  {
-        currentUser: state.session.currentUser
+        currentUser: state.session.currentUser,
+        topics: selectAllTopics(state)
     }
 };
 
 const mapDispatchToProps = dispatch => ({
-  createPost: post => dispatch(createPost(post))
+  createPost: post => dispatch(createPost(post)),
+  fetchAllTopics: () => dispatch(fetchAllTopics())
 });
 
 export default connect(

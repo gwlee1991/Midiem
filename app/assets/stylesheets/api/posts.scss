@@ -13,7 +13,7 @@
 
 .post-image-holder {
     width: 40%;
-    min-height: 120px;
+    min-height: 200px;
 }
 
 
@@ -41,4 +41,10 @@
 .post-show-body {
     margin: 20px;
     padding: 20px;
+}
+
+.new-post-form {
+    display: flex;
+    margin: 50px;
+    padding: 50px;
 }
