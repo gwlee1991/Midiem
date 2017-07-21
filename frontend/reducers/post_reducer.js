@@ -2,6 +2,7 @@ import {RECEIVE_CURRENT_POST} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const nullPost = {
+    id: "",
     title: "",
     body: "",
     image_url: "",

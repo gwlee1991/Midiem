@@ -1,3 +1,42 @@
 // Place all the styles related to the api/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post {
+    display: flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    flex-direction: row;
+    flex: 1;
+    border: 1px solid lightgray;
+}
+
+.post-image-holder {
+    width: 40%;
+    min-height: 120px;
+}
+
+
+.post-detail-holder {
+    width: 50%;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.post-show-imageholder {
+    margin: 20px;
+    padding-top: 20px;
+    border-top: 1px solid lightgray;
+}
+
+.cover-image {
+    width: 100%;
+}
+
+.post-show-body {
+    margin: 20px;
+    padding: 20px;
+}

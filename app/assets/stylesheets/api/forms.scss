@@ -3,10 +3,13 @@
 .body-without-header {
     background-position: center;
     background-image: url('http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1505/v1500424657/pexels-photo-356043_t8uyz3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1;
+    height: 100vh;
 }
 
 .log-in-form {

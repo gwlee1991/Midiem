@@ -22,6 +22,7 @@ class Header extends React.Component {
         } else {
             return (
                 <div className='user-interface'>
+                    {this.renderNewPost()}
                     <button className='username'>{this.props.currentUser.username}</button>
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
                 </div>
@@ -29,7 +30,13 @@ class Header extends React.Component {
         }
     }
 
-
+    renderNewPost(){
+        return (
+            <span className='new-post-button'>
+                <Link to='/posts/new'>Write New Story</Link>
+            </span>
+        )
+    }
 
     renderDefault(){
         return (

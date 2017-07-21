@@ -25,7 +25,7 @@ class TopicSection extends React.Component {
             <div className="topic-section">
                 <div className="section-header">
                     <Link className="section-title" to={`/topics/${topic.id}`}>
-                        {topic.title}
+                        <h3>{topic.title}</h3>
                     </Link>
                     <Link className="section-more" to={`/topics/${topic.id}`}>
                         More

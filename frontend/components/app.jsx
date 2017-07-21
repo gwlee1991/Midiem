@@ -4,6 +4,8 @@ import SessionFormContainer from './session_form/session_form_container';
 import {Route, Switch} from 'react-router-dom';
 import TopicNavContainer from './topic/topic_nav_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import PostContainer from './posts/post_container';
+import PostFormContainer from './posts/post_form_container';
 
 const App = () => (
     <div>
@@ -13,6 +15,8 @@ const App = () => (
             <AuthRoute path='/login' component={SessionFormContainer} />
             <AuthRoute path='/signup' component={SessionFormContainer} />
         </Switch>
+        <Route exact path='/posts/:postId' component={PostContainer} />
+        <Route path='posts/new' component={PostFormContainer} />
     </div>
 );
 

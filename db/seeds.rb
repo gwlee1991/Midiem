@@ -14,9 +14,11 @@ user = User.create(username: "user", password: "password")
 
 
 topic1 = Topic.create(title: "E-Sports")
-topic2 = Topic.create(title: "Tech")
+topic2 = Topic.create(title: "Technology")
 topic3 = Topic.create(title: "Travel")
 topic4 = Topic.create(title: "Parenting")
 
 post1 = Post.create(title: "Faker wins again", body: "Faker wins like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500508529/faker_haj29z.jpg")
 post2 = Post.create(title: "SKT wins again", body: "SKT wins again like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500578757/SKT1_vjei8b.png")
+post3 = Post.create(title: "Iphone 7 is mediocre", body: "I don't feel like Iphone 7 is good as 6", author_id: user.id, topic_id: topic2.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500582530/phone_nmzslm.jpg")
+post4 = Post.create(title: "Is mac better than pc?", body: "Is mac better than pc as a programmer view?", author_id: user.id, topic_id: topic2.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1681/v1500582536/laptop_czoar6.jpg")
