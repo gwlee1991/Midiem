@@ -3,35 +3,16 @@ import React from 'react';
 class Post extends React.Component {
     constructor(props){
         super(props);
-        this.renderButtons = this.renderButtons.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentWillMount(){
         this.props.fetchPost()
     }
 
-    handleDelete(e){
-        e.preventDefault();
-        this.props.destroyPost();
-    }
-
-    renderButtons(){
-        console.log("this was run");
-        if (this.props.session.currentUser.id === this.props.currentPost.author) {
-            return (
-                <section className='edit-delete-button'>
-                    <Link to={`/post/edit/${thisprops.currentPost.id}`}>Edit</Link>
-                    <Link to="/" onClick={this.handleDelete}>Delete</Link>
-                </section>
-            )
-        }
-    }
-
-
     render() {
+        console.log(this.props);
         return (
-            <div>
+            <div className="post-container">
                 <section className="post-show-imageholder">
                     <img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' />
                 </section>
@@ -40,6 +21,13 @@ class Post extends React.Component {
                     <br />
                     <p>{this.props.currentPost.body}</p>
                     <br />
+                </section>
+                <section className="post-show-author info">
+                    <div className="author-image">
+                    </div>
+                    <div className="author-username">
+                        <span>{this.props.currentPost.author.username}</span>
+                    </div>
                 </section>
             </div>
         )
