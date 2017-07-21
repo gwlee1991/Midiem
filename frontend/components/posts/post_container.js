@@ -4,7 +4,6 @@ import Post from './post';
 import {selectPost} from '../../reducers/selector';
 
 const mapStateToProps = (state, props) => {
-    console.log(state);
     return ({
         currentPost: state.currentPost,
         session: state.session

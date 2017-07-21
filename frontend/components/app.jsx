@@ -16,7 +16,7 @@ const App = () => (
             <AuthRoute path='/signup' component={SessionFormContainer} />
         </Switch>
         <Route exact path='/posts/:postId' component={PostContainer} />
-        <Route path='posts/new' component={PostFormContainer} />
+        <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
     </div>
 );
 

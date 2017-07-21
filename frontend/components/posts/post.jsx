@@ -8,9 +8,7 @@ class Post extends React.Component {
     }
 
     componentWillMount(){
-        this.props.fetchPost().then(post => {
-            return this.props.session.currentUser.id === this.props.currentPost.author.id
-        });
+        this.props.fetchPost()
     }
 
     handleDelete(e){
@@ -19,7 +17,8 @@ class Post extends React.Component {
     }
 
     renderButtons(){
-        if (this.props.session.currentUser === this.props.currentPost.author) {
+        console.log("this was run");
+        if (this.props.session.currentUser.id === this.props.currentPost.author) {
             return (
                 <section className='edit-delete-button'>
                     <Link to={`/post/edit/${thisprops.currentPost.id}`}>Edit</Link>
@@ -31,8 +30,6 @@ class Post extends React.Component {
 
 
     render() {
-        console.log(this.props.session.currentUser.id);
-        console.log(this.props.currentPost.author.id);
         return (
             <div>
                 <section className="post-show-imageholder">
@@ -44,7 +41,6 @@ class Post extends React.Component {
                     <p>{this.props.currentPost.body}</p>
                     <br />
                 </section>
-                {this.renderButtons()}
             </div>
         )
     }

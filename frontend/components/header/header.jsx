@@ -33,7 +33,7 @@ class Header extends React.Component {
     renderNewPost(){
         return (
             <span className='new-post-button'>
-                <Link to='/posts/new'>Write New Story</Link>
+                <Link to='/new-post'>Write New Story</Link>
             </span>
         )
     }
