@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class PostForm extends React.Component{
     constructor(props){
         super(props);
@@ -15,15 +16,32 @@ class PostForm extends React.Component{
         this.update = this.update.bind(this);
     }
 
+
     handleSubmit(e) {
         e.preventDefault();
         const post = this.state;
         this.props.createPost(post).then(post => this.props.history.push(`/posts/${post.id}`));
     }
 
+
     update(field) {
         return (e) => this.setState({ [field] : e.target.value });
     }
+
+    upload(e){
+        e.preventDefault();
+        cloudinary.openUploadWidget(
+            window.cloudinary_options,
+            ((error, images) => {
+                if(error === null) {
+                    this.setState = {
+                        image_url: images[0].url
+                    }
+                }
+            })
+        )
+    }
+
     render(){
         return (
             <div className="new-post-form">
@@ -42,11 +60,19 @@ class PostForm extends React.Component{
                     <section className='new-post-body-holder'>
                         <textarea type="text"
                             className="body"
-                            placeholder="Tell us your story..."
+                            placeholder="this means quill isn't working..."
                             value={this.state.body}
                             onChange={this.update('body')} 
                         />
                     </section>
+                    <button onClick={this.upload}>Upload Image</button>
+                    <br />
+                    <div>
+                        {this.state.image_url === '' ? null :
+                             <div>
+                                <img src={this.state.image_url} />
+                            </div>}
+                    </div>
                     <br />
                     <section className='new-post-submit-button'>
                         <input type="submit" value="Submit" />
