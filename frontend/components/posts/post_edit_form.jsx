@@ -1,26 +1,24 @@
 import React from 'react';
 
-class PostForm extends React.Component{
+class PostEditForm extends React.Component {
     constructor(props){
         super(props);
-        this.state={
-            title: "",
-            author_id: this.props.currentUser.id,
-            body: "",
-            topic_id: "",
-            image_url: ""
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            title: this.props.currentPost.title,
+            author: this.props.currentPost.author,
+            body: this.props.currentPost.body,
+            topic_id: this.props.currentPost.topic_id,
+            image_url: this.props.currentPost.image_url
+        }
         this.update = this.update.bind(this);
         this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
         this.upload = this.upload.bind(this);
     }
 
-
     handleSubmit(e) {
         e.preventDefault();
         const post = this.state;
-        this.props.createPost(post).then(post => this.props.history.push(`/posts/${post.id}`));
+        this.props.updatePost(post).then(post => this.props.history.push(`/posts/${post.id}`));
     }
 
     update(field) {
@@ -30,7 +28,18 @@ class PostForm extends React.Component{
     }
 
     componentDidMount(){
+        this.props.fetchPost();
         this.props.fetchAllTopics();
+    }
+
+    renderTopicDropbox(){
+        if(this.props.topics.length > 0){
+            return (
+                <select value={this.state.topic_id} onChange={this.update('topic_id')} >
+                    {this.props.topics.map(topic => <option key={topic.id}value={topic.id}>{topic.title}</option>)}
+                </select>
+            )
+        }
     }
 
     upload(e){
@@ -47,20 +56,11 @@ class PostForm extends React.Component{
             })
         )
     }
-
-    renderTopicDropbox(){
-        if(this.props.topics.length > 0){
-            return (
-                <select value={this.state.topic_id} onChange={this.update('topic_id')} >
-                    {this.props.topics.map(topic => <option key={topic.id}value={topic.id}>{topic.title}</option>)}
-                </select>
-            )
-        }
-    }
-
+    
     render(){
+
         return (
-            <div className="new-post-form">
+            <div className="edit-post-form">
                 <form onSubmit={this.handleSubmit}>
                     <div className="button-container">
                         <button onClick={this.upload} className="upload-button">Upload<i className="fa fa-picture-o" aria-hidden="true"></i></button>
@@ -71,7 +71,7 @@ class PostForm extends React.Component{
                                 <img src={this.state.image_url} />
                             </div>}
                     </div>
-                    <section className='new-post-title-holder'>
+                    <section className='edit-post-title-holder'>
                         <input
                             type="text"
                             ref='title'
@@ -82,10 +82,8 @@ class PostForm extends React.Component{
                         />
                     </section>
                     <br />
-                    <section className='new-post-body-holder'>
+                    <section className='edit-post-body-holder'>
                         <textarea type="text"
-                            rows='20'
-                            cols='80'
                             className="body"
                             placeholder="Tell us about your story..."
                             value={this.state.body}
@@ -97,8 +95,8 @@ class PostForm extends React.Component{
                         <label>Please select a topic for your story: {this.renderTopicDropbox()}</label>
                     </div>
                     <br />
-                    <section className='new-post-submit-button-container'>
-                        <input className="new-post-submit-button" type="submit" value="Submit" />
+                    <section className='edit-post-submit-button-container'>
+                        <input className="edit-post-submit-button" type="submit" value="Submit" />
                     </section>
                 </form>
             </div>
@@ -106,4 +104,6 @@ class PostForm extends React.Component{
     }
 }
 
-export default PostForm
+export default PostEditForm;
+
+

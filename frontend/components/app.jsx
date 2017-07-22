@@ -6,6 +6,7 @@ import TopicNavContainer from './topic/topic_nav_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import PostContainer from './posts/post_container';
 import PostFormContainer from './posts/post_form_container';
+import PostEditFormContainer from './posts/post_edit_form_container';
 
 const App = () => (
     <div>
@@ -17,6 +18,7 @@ const App = () => (
         </Switch>
         <Route exact path='/posts/:postId' component={PostContainer} />
         <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
+        <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
     </div>
 );
 

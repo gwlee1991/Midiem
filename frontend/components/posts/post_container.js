@@ -14,7 +14,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => ({
     fetchPost: () => dispatch(fetchPost(props.match.params.postId)),
     updatePost: () => dispatch(updatePost(props.match.params.postId)),
-    destroyPost: () => dispatch(destroyPost(props.match.params.postId))
+    destroyPost: (id) => dispatch(destroyPost(id))
 });
 
 export default connect(

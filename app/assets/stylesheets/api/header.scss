@@ -7,11 +7,16 @@
     height: 80px;
 }
 
+.logo-img {
+    min-width: 32px;
+    min-height: 32px;
+}
+
 .logo {
     display: flex;
     align-items: center;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 .logo-text {
@@ -24,13 +29,13 @@
 .user-interface {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .auth-links {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .username {
@@ -48,7 +53,7 @@
 }
 
 .logout-button:hover {
-    color: blue;
+    font-weight: 700;
 }
 
 .login-link:hover {

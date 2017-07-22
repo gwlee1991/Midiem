@@ -1,32 +1,54 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Post extends React.Component {
     constructor(props){
         super(props);
+        this.renderEditDelete = this.renderEditDelete.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     componentWillMount(){
         this.props.fetchPost()
     }
 
+    handleDelete(e){
+        this.props.destroyPost(this.props.currentPost.id).then(posts => this.props.history.push("/"))
+    }
+
+    renderEditDelete(){
+        if (this.props.session.currentUser){
+            if (this.props.currentPost.author.id === this.props.session.currentUser.id) {
+                return (
+                    <div className="edit-delete-button">
+                        <Link to={`/edit/${this.props.currentPost.id}`}><button className='edit-button'>Edit</button></Link>
+                        <button className="delete-button" onClick={this.handleDelete}>Delete</button>
+                    </div>
+                )
+            } else {
+                return "";
+            }
+        } else {
+            return "";
+        }
+    }
+
     render() {
         return (
             <div className="post-container">
                 <section className="post-show-imageholder">
+                    <section className="post-show-author-info">
+                        <div className="author-info">
+                            <span>{this.props.currentPost.author.username}</span>
+                        </div>
+                        {this.renderEditDelete()}
+                    </section>
                     <img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' />
                 </section>
-                <section className="post-show-body">
-                    <h2>{this.props.currentPost.title}</h2>
+                <section className="post-show-content">
+                    <h2 className='post-show-title'>{this.props.currentPost.title}</h2>
                     <br />
-                    <p>{this.props.currentPost.body}</p>
-                    <br />
-                </section>
-                <section className="post-show-author info">
-                    <div className="author-image">
-                    </div>
-                    <div className="author-username">
-                        <span>{this.props.currentPost.author.username}</span>
-                    </div>
+                    <p className='post-show-body'>{this.props.currentPost.body}</p>
                 </section>
             </div>
         )

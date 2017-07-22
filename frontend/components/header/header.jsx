@@ -23,8 +23,8 @@ class Header extends React.Component {
             return (
                 <div className='user-interface'>
                     {this.renderNewPost()}
-                    <button className='username'>{this.props.currentUser.username}</button>
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
+                    <button className='username'>{this.props.currentUser.username}</button>
                 </div>
             )
         }

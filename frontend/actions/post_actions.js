@@ -42,6 +42,6 @@ export const updatePost = post => dispatch => (
 
 export const destroyPost = id => dispatch => (
     APIUtil.destroyPost(id).then(() => (
-        dispatch(fetchAllPosts())
+        dispatch(receivePost(null))
     ))
 );

@@ -1,0 +1,40 @@
+.new-post-form {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 50px;
+    display: flex;
+    border-top: 1px solid lightgray;
+}
+
+.new-post-title-input {
+    font-size: 34px;
+}
+
+.new-post-title-input::placeholder {
+    font-size: 34px;
+}
+
+textarea {
+    resize: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-post-submit-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-post-submit-button{
+    border: 1px lightgray solid;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.new-post-submit-button:hover {
+    background-color: lightblue;
+}
