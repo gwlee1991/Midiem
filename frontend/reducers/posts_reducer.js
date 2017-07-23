@@ -2,7 +2,7 @@ import { RECEIVE_ALL_POSTS } from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const nullPosts = {
-    0: {
+    1: {
         title: "",
         body: "",
         author: {},

@@ -3,7 +3,7 @@ import {fetchPost, updatePost, destroyPost} from "../../actions/post_actions";
 import Post from './post';
 import {selectPost} from '../../reducers/selector';
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = state => {
     return ({
         currentPost: state.currentPost,
         session: state.session

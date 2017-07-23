@@ -7,6 +7,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import PostContainer from './posts/post_container';
 import PostFormContainer from './posts/post_form_container';
 import PostEditFormContainer from './posts/post_edit_form_container';
+import TopicContainer from './topic/topic_container';
 
 const App = () => (
     <div>
@@ -19,6 +20,7 @@ const App = () => (
         <Route exact path='/posts/:postId' component={PostContainer} />
         <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
         <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
+        <Route path='/topics/:topicId' component={TopicContainer} />
     </div>
 );
 
