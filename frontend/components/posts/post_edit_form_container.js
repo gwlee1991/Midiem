@@ -3,6 +3,7 @@ import PostEditForm from './post_edit_form';
 import { updatePost, fetchPost } from '../../actions/post_actions';
 import {fetchAllTopics} from '../../actions/topic_actions';
 import {selectPost} from '../../reducers/selector';
+import {withRouter} from 'react-router';
 
 import {selectAllTopics} from '../../reducers/selector';
 
@@ -21,7 +22,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     fetchAllTopics: () => dispatch(fetchAllTopics())
 });
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(PostEditForm);
+)(PostEditForm));

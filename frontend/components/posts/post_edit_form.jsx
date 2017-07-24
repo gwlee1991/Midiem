@@ -29,8 +29,12 @@ class PostEditForm extends React.Component {
         };
     }
 
+    componentDidMount(){
+        this.props.fetchPost(this.props.match.postId).then(action => {
+            this.setState(action.currentPost)});
+    }
+
     componentWillMount(){
-        this.props.fetchPost();
         this.props.fetchAllTopics();
     }
 

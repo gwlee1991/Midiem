@@ -1,6 +1,11 @@
 class Api::PostsController < ApplicationController
     def index
-        @posts = Post.all
+        if params[:topic_id]
+            @posts = Post.where(topic_id: params[:topic_id])
+        else
+            @posts = Post.all
+        end
+
         render "/api/posts/index"
     end
 

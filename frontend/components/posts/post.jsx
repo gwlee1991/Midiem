@@ -7,7 +7,6 @@ class Post extends React.Component {
         super(props);
         this.renderEditDelete = this.renderEditDelete.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
-        this.renderCOmments = this.renderComments.bind(this);
     }
 
     componentWillMount(){
@@ -35,12 +34,6 @@ class Post extends React.Component {
         }
     }
 
-    renderComments(){
-        if (this.props.currentPost.id){
-            return this.props.currentPost.comments.map(comment => <Comments key={comment.id} comment={comment} />)
-        }
-    }
-
     render() {
         return (
             <div className="post-container">
@@ -59,6 +52,7 @@ class Post extends React.Component {
                     <p className='post-show-body'>{this.props.currentPost.body}</p>
                 </section>
                 <section>
+                    {this.props.currentPost.comments.map(comment => <Comments key={comment.id} comment={comment} />)}
                 </section>
               
             </div>
