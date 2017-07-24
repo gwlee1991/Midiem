@@ -6,7 +6,7 @@ class Topic extends React.Component {
     this.renderPosts = this.renderPosts.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.fetchTopic();
     this.props.fetchPosts();
   }

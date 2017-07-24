@@ -7,4 +7,8 @@ export const receiveComments = comments => ({
   comments
 });
 
-export const 
+export const createComment = comment => dispatch => (
+  APIUtil.createComment(comment).then(comment => (
+    dispatch(receiveComments(comment))
+  ))
+);

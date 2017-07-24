@@ -21,6 +21,7 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.author_id = current_user.id
+        @post.image_url = "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500922756/pexels-photo-461947_ygh99o.jpg" if @post.image_url == ""
         if @post.save!
             render "/api/posts/show"
         else

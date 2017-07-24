@@ -8,12 +8,10 @@ json.author do
     json.username @post.author.username
 end
 json.comments @post.comments do |comment|
-    json.set! comment.id do
-        json.id comment.id
-        json.body comment.body
-        json.author do
-            json.username comment.user.username
-            json.image_url comment.user.image_url
-        end
+    json.id comment.id
+    json.body comment.body
+    json.author do
+        json.username comment.user.username
+        json.image_url comment.user.image_url
     end
 end

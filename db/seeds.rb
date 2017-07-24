@@ -8,6 +8,7 @@
 User.destroy_all
 Topic.destroy_all
 Post.destroy_all
+Comment.destroy_all
 
 guest = User.create(username: "guest", password: "password")
 user = User.create(username: "user", password: "password")

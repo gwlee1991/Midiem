@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Comments from '../comments/comments';
+import CommentFormContainer from '../comments/comment_form_container';
 
 class Post extends React.Component {
     constructor(props){
@@ -52,7 +53,10 @@ class Post extends React.Component {
                     <p className='post-show-body'>{this.props.currentPost.body}</p>
                 </section>
                 <section>
-                    {this.props.currentPost.comments.map(comment => <Comments key={comment.id} comment={comment} />)}
+                    <CommentFormContainer />
+                </section>
+                <section>
+                    { this.props.currentPost.id ? this.props.currentPost.comments.map(comment => <Comments key={comment.id} comment={comment} />) : ""}
                 </section>
               
             </div>

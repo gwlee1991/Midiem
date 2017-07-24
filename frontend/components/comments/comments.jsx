@@ -6,9 +6,15 @@ class Comments extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     return (
-      <div>this is comments</div>
+      <div className="comment-box">
+        <div>
+          {this.props.comment.author.username}
+        </div>
+        <div>
+          {this.props.comment.body}
+        </div>
+      </div>
     )
   }
 }
