@@ -62,7 +62,7 @@ class PostForm extends React.Component{
             <div className="new-post-form">
                 <form onSubmit={this.handleSubmit}>
                     <div className="button-container">
-                        <button onClick={this.upload} className="upload-button">Upload<i className="fa fa-picture-o" aria-hidden="true"></i></button>
+                        <button onClick={this.upload} className="upload-button"><i className="fa fa-picture-o" aria-hidden="true"></i></button>
                     </div>
                     <div>
                         {this.state.image_url === '' ? null :

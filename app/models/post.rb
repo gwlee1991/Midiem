@@ -6,5 +6,8 @@ class Post < ApplicationRecord
         primary_key: :id,
         foreign_key: :author_id,
         class_name: :User
-    has_many :comments
+    has_many :comments, dependent: :destroy,
+        primary_key: :id,
+        foreign_key: :post_id,
+        class_name: :Comment
 end

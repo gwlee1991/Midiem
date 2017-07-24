@@ -3,15 +3,33 @@ import {Link} from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form_container';
 
+
 class Post extends React.Component {
     constructor(props){
         super(props);
         this.renderEditDelete = this.renderEditDelete.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.selectComment = this.selectComment.bind(this);
+    }
+
+    componentDidMount(){
+        this.props.fetchComments(this.props.match.params.postId);
     }
 
     componentWillMount(){
         this.props.fetchPost()
+    }
+
+    selectComment(){
+        let comments = []
+
+        this.props.comments.forEach(comment => {
+            if(comment.post_id === this.props.currentPost.id){
+                comments.push(comment)
+            }
+        });
+
+        return comments;
     }
 
     handleDelete(e){
@@ -56,7 +74,7 @@ class Post extends React.Component {
                     <CommentFormContainer />
                 </section>
                 <section>
-                    { this.props.currentPost.id ? this.props.currentPost.comments.map(comment => <Comments key={comment.id} comment={comment} />) : ""}
+                    {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments destroyComment={this.props.destroyComment} key={comment.id} comment={comment} />) : ""}
                 </section>
               
             </div>

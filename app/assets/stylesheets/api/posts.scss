@@ -7,7 +7,8 @@
     margin-right: 10px;
     margin-bottom: 10px;
     flex-direction: row;
-    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
     border: 1px solid lightgray;
 }
 
@@ -27,8 +28,8 @@
 }
 
 .post-show-imageholder {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
     margin-bottom: 20px;
     margin-top: 0px;
     padding-top: 20px;
@@ -41,8 +42,8 @@
 }
 
 .post-show-content {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 150px;
+    margin-left: 150px;
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 20px;

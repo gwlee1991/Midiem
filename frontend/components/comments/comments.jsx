@@ -3,6 +3,12 @@ import React from 'react';
 class Comments extends React.Component {
   constructor(props){
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(e){
+    e.preventDefault();
+    this.props.destroyComment(this.props.comment.id);
   }
 
   render () {
@@ -13,6 +19,7 @@ class Comments extends React.Component {
         </div>
         <div>
           {this.props.comment.body}
+          <button className='delete-comment-button' onClick={this.handleDelete}>Delete</button>
         </div>
       </div>
     )

@@ -1,29 +1,27 @@
 class Api::CommentsController < ApplicationController
   def index
-    @comments = Comment.all
+    if params[:post_id]
+      @comments = Comment.where(post_id: params[:post_id])
+    else
+      @comments = Comment.all
+    end
     render "api/comments/index"
   end
 
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save!
-    render json: @comment.errors.full_messages, status: 422
+    if @comment.save!
+      render "/api/comments/show"
+    else
+      render json: @comment.errors.full_messages, status: 422
+    end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    render json: @comment.errors.full_messages, status: 404
-  end
-
-  def update
-    @comment = Comment.find(params[:id])
-    if @comment.update_attributes(comment_params)
-      render "api/comments/index"
-    else
-      render json: @comment.errors.full_messages, status: 422
-    end
+    
   end
 
   private 

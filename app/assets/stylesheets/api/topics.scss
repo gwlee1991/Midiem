@@ -5,10 +5,10 @@
 
 .topic-navbar {
     height: 50px;
-    padding-right: 50px;
-    padding-left: 50px;
-    margin-right: 50px;
-    margin-left: 50px;
+    padding-right: 75px;
+    padding-left: 75px;
+    margin-right: 75px;
+    margin-left: 75px;
 
 }
 
@@ -27,12 +27,11 @@
 }
 
 .topic-section {
-    margin-right: 50px;
-    margin-left: 50px;
-    padding-right: 50px;
-    padding-left: 50px;
+    margin-right: 75px;
+    margin-left: 75px;
+    padding-right: 75px;
+    padding-left: 75px;
     margin-top: 20px;
-
     display: flex;
     flex-direction: column;
 }
@@ -51,6 +50,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .post-item-image {

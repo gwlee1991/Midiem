@@ -1,6 +1,6 @@
 .new-post-form {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
     padding-top: 50px;
     display: flex;
     border-top: 1px solid lightgray;
@@ -20,7 +20,7 @@ textarea {
 
 .button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .new-post-submit-button-container {

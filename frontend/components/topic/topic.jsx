@@ -1,36 +1,32 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import PostItem from '../posts/post_item';
 
 class Topic extends React.Component {
   constructor(props){
     super(props);
-    this.renderPosts = this.renderPosts.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchTopic();
+    this.props.fetchTopic(this.props.match.params.topicId)
     this.props.fetchPosts();
   }
 
-  renderPosts(){
-    console.log(this.props.posts);
-    if (this.props.posts.length > 1){
-      this.props.posts.map(post=> {
-        return (
-          <li>
-            {post.title}
-          </li>
-        )
-      })
-    }
-  }
+  
+
 
   render(){
-    console.log(this.props);
+    console.log(this.props.topic);
     return(
       <div>
-        <h2>{this.props.topics.title}</h2>
-        <ul>{this.renderPosts()}</ul>
-
+        <div>
+          {this.props.topic.title}
+        </div>
+        <div>
+          <ul>
+            {this.props.posts.map(post => <PostItem key={post.id} post={post} />)}
+          </ul>
+        </div>
       </div>
     )
   }

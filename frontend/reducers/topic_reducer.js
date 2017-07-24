@@ -12,7 +12,7 @@ const TopicReducer = (state = nullTopic, action) => {
             return merge({}, state, topics);
         case RECEIVE_CURRENT_TOPIC:
             const topic = action.topic;
-            return merge({}, state, topic);
+            return merge({}, state, {[topic.id]: topic});
         default: 
             return state;
     }

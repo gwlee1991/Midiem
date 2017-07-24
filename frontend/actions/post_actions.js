@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/post_api_util';
-import * as APIUtilC from '../util/comment_api_util';
 
 export const RECEIVE_CURRENT_POST = "RECEIVE_CURRENT_POST";
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
@@ -22,11 +21,6 @@ export const deletePost = id => ({
 
 // async
 
-export const createComment = comment => dispatch => (
-    APIUtilC.createComment(comment).then(comment => (
-        dispatch(receivePost)
-    ))
-)
 
 export const fetchPost = id => dispatch => (
     APIUtil.fetchPost(id).then(post => (

@@ -5,12 +5,6 @@ class CommentForm extends React.Component {
     super(props);
     this.state = {
       body: "",
-      author: {
-        username: this.props.currentUser.username,
-        id: this.props.currentUser.id,
-        image_url: this.props.currentUser.image_url
-      },
-      post_id: this.props.currentPost.id
     }
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,11 +17,18 @@ class CommentForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const comment = this.state;
-    this.props.createComment(comment)
+    comment.post_id = this.props.currentPost.id;
+    this.props.createComment(comment).then( () => {
+      this.setState({
+        body: ""
+      })
+    });
   }
 
+
+
   render(){
-    console.log(this.props);
+    console.log(this.props.currentPost)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -39,7 +40,7 @@ class CommentForm extends React.Component {
             onChange={this.update('body')}
             placeholder="write your comments..."
           />
-          <input type='submit' value='Comment' />
+          <input type='submit' value='Publish' />
         </form>
       </div>
     )
