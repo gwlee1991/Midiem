@@ -13,3 +13,7 @@ export const selectTopic = ({topics} ,id) => {
 export const selectPost = ({posts}, id) => {
   return posts[id] || {};
 };
+
+export const selectAllComments = ({comments}) => {
+  return Object.keys(comments).map(id=> comments[id]);
+};

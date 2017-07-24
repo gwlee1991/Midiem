@@ -4,6 +4,7 @@ class PostEditForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
+            id: this.props.currentPost.id,
             title: this.props.currentPost.title,
             author: this.props.currentPost.author,
             body: this.props.currentPost.body,
@@ -13,12 +14,13 @@ class PostEditForm extends React.Component {
         this.update = this.update.bind(this);
         this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
         this.upload = this.upload.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const post = this.state;
-        this.props.updatePost(post).then(post => this.props.history.push(`/posts/${post.id}`));
+        this.props.updatePost(post).then(post => this.props.history.push(`/posts/${this.state.id}`));
     }
 
     update(field) {
@@ -27,7 +29,7 @@ class PostEditForm extends React.Component {
         };
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.props.fetchPost();
         this.props.fetchAllTopics();
     }
@@ -47,7 +49,6 @@ class PostEditForm extends React.Component {
         cloudinary.openUploadWidget(
             window.cloudinary_options,
             ((error, images) => {
-                console.log(error)
                 if(error === null) {
                     this.setState({
                         image_url: images[0].url
@@ -58,7 +59,6 @@ class PostEditForm extends React.Component {
     }
     
     render(){
-
         return (
             <div className="edit-post-form">
                 <form onSubmit={this.handleSubmit}>

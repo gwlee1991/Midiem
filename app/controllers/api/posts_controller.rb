@@ -35,7 +35,6 @@ class Api::PostsController < ApplicationController
     def destroy
         @post = Post.find(params[:id])
         @post.destroy
-        render json: @post.errors.full_messages, status: 404
     end
 
     private

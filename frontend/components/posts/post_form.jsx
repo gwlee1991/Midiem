@@ -38,7 +38,6 @@ class PostForm extends React.Component{
         cloudinary.openUploadWidget(
             window.cloudinary_options,
             ((error, images) => {
-                console.log(error)
                 if(error === null) {
                     this.setState({
                         image_url: images[0].url

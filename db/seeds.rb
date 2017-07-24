@@ -26,3 +26,7 @@ post5 = Post.create(title: "Traveling is fun", body: "beautiful pictures picture
 post6 = Post.create(title: "Traveling is awesome", body: "you get to see beautiful places", author_id: user.id, topic_id: topic3.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500676334/travel2_ktq8x4.jpg")
 post7 = Post.create(title: "Parenting is scary", body: "It's best when the baby is still in the womb", author_id: guest.id, topic_id: topic4.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500676294/parenting1_gfpmjn.jpg")
 post8 = Post.create(title: "Parenting is awesome", body: "Kids are so fun", author_id: guest.id, topic_id: topic4.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500676307/parenting2_eyv4we.jpg")
+
+comment1 = Comment.create(body: "hello", post_id: post1.id, user_id: guest.id);
+comment2 = Comment.create(body: "hello", post_id: post2.id, user_id: guest.id);
+comment2 = Comment.create(body: "bye", post_id: post1.id, user_id: guest.id);
