@@ -11,13 +11,13 @@ Post.destroy_all
 Comment.destroy_all
 
 guest = User.create(username: "guest", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_32/v1501014959/default-user-image_gvyan3.png")
-user = User.create(username: "user", password: "password")
+user = User.create(username: "user", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_32/v1501014959/default-user-image_gvyan3.png")
 
 
-topic1 = Topic.create(title: "E-Sports")
 topic2 = Topic.create(title: "Technology")
 topic3 = Topic.create(title: "Travel")
 topic4 = Topic.create(title: "Parenting")
+topic1 = Topic.create(title: "E-Sports")
 
 post1 = Post.create(title: "Faker wins again", body: "Faker wins like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500508529/faker_haj29z.jpg")
 post2 = Post.create(title: "SKT wins again", body: "SKT wins again like always", author_id: guest.id, topic_id: topic1.id, image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500578757/SKT1_vjei8b.png")

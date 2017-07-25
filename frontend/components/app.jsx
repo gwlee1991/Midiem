@@ -10,6 +10,7 @@ import PostEditFormContainer from './posts/post_edit_form_container';
 import TopicContainer from './topic/topic_container';
 import UserContainer from './user/user_container'
 import SearchContainer from './search/search_container';
+import AuthorContainer from './user/author_container';
 
 const App = () => (
     <div>
@@ -23,7 +24,8 @@ const App = () => (
         <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
         <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
         <Route path='/topics/:topicId' component={TopicContainer} />
-        <Route path='/user/:userId' component={UserContainer} />
+        <Route exact path='/user/:userId/profile' component={UserContainer} />
+        <Route path='/user/:userId' component={AuthorContainer} />
         <Route path='/search' component={SearchContainer} />
     </div>
 );

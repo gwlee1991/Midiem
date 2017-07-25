@@ -8,13 +8,26 @@
     margin-bottom: 10px;
     flex-direction: row;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 47%;
     border: 1px solid lightgray;
 }
 
 .post-image-holder {
+    height: 200px;
     width: 40%;
-    min-height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-author-image {
+    border-radius: 25px;
+}
+
+.post-author-image-container {
+    height: 32px;
+    width: 32px;
 }
 
 
@@ -27,6 +40,10 @@
     justify-content: space-between;
 }
 
+.post-title {
+    font-size: 24px;
+}
+
 .post-show-imageholder {
     margin-right: 150px;
     margin-left: 150px;
@@ -34,6 +51,14 @@
     margin-top: 0px;
     padding-top: 20px;
     border-top: 1px solid lightgray;
+    
+}
+
+.post-item-image {
+    height: auto;
+    width: auto;
+    max-height: 200px;
+    
 }
 
 .cover-image {

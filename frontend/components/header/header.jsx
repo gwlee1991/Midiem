@@ -26,7 +26,7 @@ class Header extends React.Component {
                     <Link to="/search"><button className="search-icon"><i className="fa fa-search" aria-hidden="true"></i></button></Link>
                     {this.renderNewPost()}
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
-                    <Link to={`/user/${this.props.currentUser.id}`}><button className='username'>{this.props.currentUser.username}</button></Link>
+                    <Link to={`/user/${this.props.currentUser.id}/profile`}><button className='username'><img className="header-user-image" src={this.props.currentUser.image_url} /></button></Link>
                 </div>
             )
         }
