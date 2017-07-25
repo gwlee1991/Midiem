@@ -1,5 +1,5 @@
 import React from 'react';
-import PostItem from './posts/post_item';
+import PostItem from '../posts/post_item';
 
 class Search extends React.Component {
   constructor(props){
