@@ -7,7 +7,7 @@ class PostForm extends React.Component{
             title: "",
             author_id: this.props.currentUser.id,
             body: "",
-            topic_id: "1",
+            topic_id: 1,
             image_url: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
