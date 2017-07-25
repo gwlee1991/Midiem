@@ -1,13 +1,14 @@
 import {connect } from 'react-redux';
 import Search from './search';
 import {fetchPosts} from '../../actions/post_actions'
+import {selectAllPosts} from '../../reducers/selector';
 
 const mapStateToProps = state => ({
-  posts: state.posts
+  posts: selectAllPosts(state)
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllPosts: () => dispatch(fetchPosts())
+  fetchPosts: () => dispatch(fetchPosts())
 })
 
 export default connect(

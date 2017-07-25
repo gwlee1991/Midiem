@@ -21,9 +21,11 @@
 
 .logo-text {
     font-family: 'Fresca', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     margin: 10px;
     padding: 10px;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 .user-interface {
@@ -37,6 +39,7 @@
     align-items: center;
     margin-right: 150px;
 }
+
 
 .username {
     margin-right: 5px;
@@ -52,6 +55,10 @@
     padding-left: 5px;
 }
 
+.new-post-button {
+    margin-left: 5px;
+}
+
 .logout-button:hover {
     font-weight: 700;
 }
@@ -65,5 +72,8 @@
 }
 
 .new-post-button:hover {
+    font-weight: 700;
+}
+.search-icon:hover {
     font-weight: 700;
 }

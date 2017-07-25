@@ -14,6 +14,7 @@ class Header extends React.Component {
         if (this.props.currentUser === null){
             return (
                 <div className='auth-links'>
+                    <Link to="/search"><button><i className="fa fa-search" aria-hidden="true"></i></button></Link>
                     <Link to='/login' className='login-link'>Log In</Link>
                     &nbsp;or&nbsp;
                     <Link to='/signup' className='signup-link'>Sign Up</Link>
@@ -22,6 +23,7 @@ class Header extends React.Component {
         } else {
             return (
                 <div className='user-interface'>
+                    <Link to="/search"><button className="search-icon"><i className="fa fa-search" aria-hidden="true"></i></button></Link>
                     {this.renderNewPost()}
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
                     <Link to={`/user/${this.props.currentUser.id}`}><button className='username'>{this.props.currentUser.username}</button></Link>
@@ -51,7 +53,6 @@ class Header extends React.Component {
         return (
             <header className='header-nav'>
                 {this.renderDefault()}
-                <Link to="/search"><button>Search</button></Link>
                 {this.renderLinks()}
             </header>
         )
