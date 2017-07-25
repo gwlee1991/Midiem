@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Comments extends React.Component {
   constructor(props){
@@ -15,7 +16,7 @@ class Comments extends React.Component {
     return (
       <div className="comment-box">
         <div>
-          {this.props.comment.author.username}
+          <Link to={`/user/${this.props.comment.author.id}`}>{this.props.comment.author.username}</Link>
         </div>
         <div>
           {this.props.comment.body}

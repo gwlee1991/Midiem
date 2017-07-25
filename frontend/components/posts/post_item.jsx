@@ -13,8 +13,8 @@ class PostItem extends React.Component {
                 </div>
                 <div className="post-detail-holder">
                     <Link to={`/posts/${post.id}`}><span className="post-title">{post.title}</span></Link>
-                    <span className="post-author-image">here will go the image</span>
-                    <span className="post-author">{post.author.username}</span>
+                    <Link to={`/user/${post.author.id}`}><span className="post-author-image">here will go the image</span></Link>
+                    <Link to={`/user/${post.author.id}`}><span className="post-author">{post.author.username}</span></Link>
                 </div>
             </div>
         )

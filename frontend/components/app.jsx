@@ -8,6 +8,7 @@ import PostContainer from './posts/post_container';
 import PostFormContainer from './posts/post_form_container';
 import PostEditFormContainer from './posts/post_edit_form_container';
 import TopicContainer from './topic/topic_container';
+import UserContainer from './user/user_container';
 
 const App = () => (
     <div>
@@ -21,6 +22,7 @@ const App = () => (
         <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
         <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
         <Route path='/topics/:topicId' component={TopicContainer} />
+        <Route path='/user/:userId' component={UserContainer} />
     </div>
 );
 

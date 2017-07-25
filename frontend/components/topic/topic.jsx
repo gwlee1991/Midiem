@@ -12,11 +12,8 @@ class Topic extends React.Component {
     this.props.fetchPosts();
   }
 
-  
-
-
   render(){
-    console.log(this.props.topic);
+    console.log(this.props.posts);
     return(
       <div>
         <div>

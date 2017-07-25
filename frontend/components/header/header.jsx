@@ -24,7 +24,7 @@ class Header extends React.Component {
                 <div className='user-interface'>
                     {this.renderNewPost()}
                     <button onClick={this.props.logout} className='logout-button'>Log Out</button>
-                    <button className='username'>{this.props.currentUser.username}</button>
+                    <Link to={`/user/${this.props.currentUser.id}`}><button className='username'>{this.props.currentUser.username}</button></Link>
                 </div>
             )
         }
@@ -51,6 +51,7 @@ class Header extends React.Component {
         return (
             <header className='header-nav'>
                 {this.renderDefault()}
+                <Link to="/search"><button>Search</button></Link>
                 {this.renderLinks()}
             </header>
         )
