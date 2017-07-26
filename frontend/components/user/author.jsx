@@ -11,16 +11,20 @@ class User extends React.Component{
   }
 
   render(){
+    if (this.props.posts.length>0){
+
+      console.log(this.props.posts[0].author);
+    }
     console.log(this.props.posts);
     return (
       <div>
         <div>
           <section>
             <div>
-              <h2>{this.props.currentUser.username}</h2>
+              <h2>{this.props.posts.length > 0 ? this.props.posts[0].author.username : ""}</h2>
             </div>
             <div>
-              <img src={this.props.currentUser.image_url} />
+              {this.props.posts.length > 0 ? <img src={this.props.posts[0].author.image_url} /> : ""}
             </div>
           </section>
         </div>

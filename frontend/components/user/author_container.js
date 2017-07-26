@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
-import Author from './user';
+import Author from './author';
 import {selectPostsUser} from '../../reducers/selector';
-import {fetchPosts} from '../../actions/post_actions';
+import {fetchPosts} from '../../actions/post_actions'; 
 
 const mapStateToProps = (state, props) => ({
   posts: selectPostsUser(props.match.params.userId, state),
