@@ -56,32 +56,34 @@ class Post extends React.Component {
     render() {
         return (
             <div className="post-container">
-                <section className="post-show-imageholder">
-                    <section className="post-show-author-info">
-                        <div className="author-info">
+                <div className="post-main">
+                    <section className="post-show-imageholder">
+                        <section className="post-show-author-info">
+                            <div className="author-info">
+                                <Link to={`/user/${this.props.currentPost.author.id}`}>
+                                    <span>
+                                        <img className="header-user-image" src={this.props.currentPost.author.image_url} />
+                                        {this.props.currentPost.author.username}
+                                    </span>
+                                </Link>
+                            </div>
+                            {this.renderEditDelete()}
+                        </section>
+                            <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                             <Link to={`/user/${this.props.currentPost.author.id}`}>
-                                <span>
-                                    <img className="header-user-image" src={this.props.currentPost.author.image_url} />
-                                    {this.props.currentPost.author.username}
-                                </span>
+                                <div className='post-cover-image'><img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' /></div>
                             </Link>
-                        </div>
-                        {this.renderEditDelete()}
                     </section>
-                    <Link to={`/user/${this.props.currentPost.author.id}`}><img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' /></Link>
-                </section>
-                <section className="post-show-content">
-                    <h2 className='post-show-title'>{this.props.currentPost.title}</h2>
-                    <br />
-                    <p className='post-show-body'>{this.props.currentPost.body}</p>
-                </section>
-                <section>
-                    <CommentFormContainer />
-                </section>
-                <section>
-                    {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments destroyComment={this.props.destroyComment} key={comment.id} comment={comment} />) : ""}
-                </section>
-              
+                    <section className="post-show-content">
+                        <p className='post-show-body body'>{this.props.currentPost.body}</p>
+                    </section>
+                    <section>
+                        <CommentFormContainer />
+                    </section>
+                    <section>
+                        {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments currentUser={this.props.session.currentUser} destroyComment={this.props.destroyComment} key={comment.id} comment={comment} />) : ""}
+                    </section>
+                </div>
             </div>
         )
     }

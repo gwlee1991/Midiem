@@ -29,19 +29,25 @@ class CommentForm extends React.Component {
 
   render(){
     return (
-      <div className='comment-form'>
-        <h3> Responses</h3>
-        <form onSubmit={this.handleSubmit}>
-          <textarea
-            type="text"
-            cols='50'
-            className="comment-body"
-            value={this.state.body}
-            onChange={this.update('body')}
-            placeholder="write your comments..."
-          />
-          <input type='submit' value='Publish' />
-        </form>
+      <div className='comment-form-with-title'>
+        <h4 className="comment-form-title title"> Responses</h4>
+          <form className="comment-form" onSubmit={this.handleSubmit}>
+            <div className="post-author-image-container">
+              <img className="comment-author-image" src={this.props.currentUser.image_url}/> <br />
+            </div>
+            <div className="response-body">
+              <textarea
+                type="text"
+                cols='50'
+                rows='5'
+                className="comment-body body"
+                value={this.state.body}
+                onChange={this.update('body')}
+                placeholder="write your comments..."
+              />
+            </div>
+            <input className="comment-submit-button body" type='submit' value='Publish' />
+          </form>
       </div>
     )
   }

@@ -19,8 +19,8 @@ class TopicNav extends React.Component {
             </nav>
             <div className="topic-section-container">
                 <div className="splash-logo">
-                    <div className="splash-logo-text">Home to unique experiences from around the world.</div>
-                    <div className="splash-logo-subtext">Hear directly from the people who know it best. From tech to e-sports we got you covered</div>
+                    <div className="splash-logo-text title">Home to unique experiences from around the world.</div>
+                    <div className="splash-logo-subtext body">Hear directly from the people who know it best. From tech to e-sports we got you covered</div>
                 </div>
 
                 {topics.map(topic => <TopicSection key={topic.id} topic={topic} posts={posts}/>)}

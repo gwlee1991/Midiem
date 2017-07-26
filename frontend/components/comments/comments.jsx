@@ -9,10 +9,13 @@ class Comments extends React.Component {
 
   handleDelete(e){
     e.preventDefault();
-    this.props.destroyComment(this.props.comment.id);
+    if (this.props.currentUser.id === this.props.comment.author.id){
+      this.props.destroyComment(this.props.comment.id);
+    }
   }
 
   render () {
+    console.log(this.props);
     return (
       <div className="comment-box">
         <div>

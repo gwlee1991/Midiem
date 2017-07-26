@@ -8,7 +8,7 @@
     margin-bottom: 10px;
     flex-direction: row;
     min-width: 300px;
-    max-width: 47%;
+    flex: 1;
     border: 1px solid lightgray;
     box-shadow: 0 0 8px 2px lightgray;
 }
@@ -31,6 +31,19 @@
     width: 32px;
 }
 
+.post-main {
+    width: 650px;
+}
+
+.post-container {
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid lightgray;
+}
 
 .post-detail-holder {
     width: 50%;
@@ -45,14 +58,20 @@
     font-size: 24px;
 }
 
+.post-cover-image {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    min-width: 400px;
+    justify-content: center;
+    align-items: center;
+}
+
 .post-show-imageholder {
-    margin-right: 100px;
-    margin-left: 100px;
     margin-bottom: 20px;
     margin-top: 0px;
     padding-top: 20px;
-    border-top: 1px solid lightgray;
-    
 }
 
 .post-item-image {
@@ -63,28 +82,26 @@
 }
 
 .cover-image {
-    width: 100%;
-    max-height: 400px;
-    min-width: 400px;
+    width: auto;
+    height: 100%;
 }
 
 .post-show-content {
-    margin-right: 100px;
-    margin-left: 100px;
     margin-top: 20px;
     margin-bottom: 30px;
-    padding: 20px;
-    min-width: 400px;
 }
 
 
 .post-show-title {
     font-weight: 700;
     font-size: 34px;
+    font-family: "$open-sans";
+    margin-bottom: 30px;
 }
 
 .post-show-body {
     font-size: 18px;
+    font-family: "$roboto";
 }
 
 .post-show-author-info {
@@ -104,9 +121,4 @@
 .delete-button {
     margin-left: 5px;
     padding-left: 5px;
-}
-
-.comment-form {
-    margin-left: 100px;
-    margin-right: 100px;
 }

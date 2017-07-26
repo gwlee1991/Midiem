@@ -72,29 +72,29 @@ class SessionForm extends React.Component {
         <div className='body-without-header'>
 
             <form onSubmit={this.handleSubmit} className='log-in-form'>
-                <h1 className='form-title'>Midiem</h1>
-                <h2 className='web-description'>Share your stories with the world</h2>
+                <h1 className='form-title title'>Midiem</h1>
+                <h2 className='web-description body'>Share your stories with the world</h2>
                 <h3>Log In</h3>
 
                 {this.renderErrors()}
                 <input
-                    className="username-input"
+                    className="username-input body"
                     type="text"
                     value={this.state.username}
                     placeholder="username"
                     onChange={this.update('username')}
                 />
                 <input
-                    className="password-input"
+                    className="password-input body"
                     type="password"
                     value={this.state.password}
                     placeholder='password'
                     onChange={this.update('password')}
                 />
                 <br />
-                <input className="auth-button" type="submit" value="Log In" />
+                <input className="auth-button body" type="submit" value="Log In" />
                 <p>or</p>
-                <input className="demo-button" type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
+                <input className="demo-button body" type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
             </form>
         </div>
       )
@@ -102,29 +102,29 @@ class SessionForm extends React.Component {
       return (
         <div className='body-without-header'>
           <form onSubmit={this.handleSubmit} className='sign-up-form'>
-            <h1 className='form-title'>Midiem</h1>
-            <h2 className='web-description'>Share your stories with the world</h2>
+            <h1 className='form-title title'>Midiem</h1>
+            <h2 className='web-description body'>Share your stories with the world</h2>
             <h3>Sign Up</h3>
             {this.renderErrors()}
             <input
-              className="username-input"
+              className="username-input body"
               type="text"
               value={this.state.username}
               placeholder="username"
               onChange={this.update('username')}
             />
             <input
-            className="password-input"
+            className="password-input body"
             type="password"
             value={this.state.password}
             placeholder='password'
             onChange={this.update('password')}
             />
           <br />
-          <input className="auth-button" type="submit" value="Sign Up" />
+          <input className="auth-button body" type="submit" value="Sign Up" />
           <br />
           <p>or</p>
-          <input className="demo-button" type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
+          <input className="demo-button body" type="submit" value="Demo Login!" onClick={this.handleDemoLogin} />
           </form>
         </div>
       )
