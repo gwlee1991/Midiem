@@ -15,7 +15,6 @@
 .log-in-form {
     background-color: white;
     opacity: 0.6;
-    border-radius: 25px;
     padding: 20px;
     width: 250px;
     min-height: 330px;
@@ -28,7 +27,6 @@
 .sign-up-form {
     background-color: white;
     opacity: 0.6;
-    border-radius: 25px;
     padding: 20px;
     width: 250px;
     min-height: 330px;
@@ -50,25 +48,21 @@
     border: 1px solid lightgray;
     margin: 5px;
     padding: 5px;
-    border-radius: 10px;
 }
 .password-input {
     border: 1px solid lightgray;
     margin: 5px;
     padding: 5px;
-    border-radius: 10px;
 }
 
 .auth-button {
     border: 1px solid lightgray;
-    border-radius: 10px;
     padding: 5px;
     margin: 3px;
 }
 
 .demo-button {
     border: 1px solid lightgray;
-    border-radius: 10px;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;

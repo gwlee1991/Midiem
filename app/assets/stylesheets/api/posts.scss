@@ -10,6 +10,7 @@
     min-width: 300px;
     max-width: 47%;
     border: 1px solid lightgray;
+    box-shadow: 0 0 8px 2px lightgray;
 }
 
 .post-image-holder {
@@ -45,8 +46,8 @@
 }
 
 .post-show-imageholder {
-    margin-right: 150px;
-    margin-left: 150px;
+    margin-right: 100px;
+    margin-left: 100px;
     margin-bottom: 20px;
     margin-top: 0px;
     padding-top: 20px;
@@ -58,20 +59,22 @@
     height: auto;
     width: auto;
     max-height: 200px;
-    
+
 }
 
 .cover-image {
     width: 100%;
-    max-height: 600px;
+    max-height: 400px;
+    min-width: 400px;
 }
 
 .post-show-content {
-    margin-right: 150px;
-    margin-left: 150px;
+    margin-right: 100px;
+    margin-left: 100px;
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 20px;
+    min-width: 400px;
 }
 
 
@@ -81,7 +84,7 @@
 }
 
 .post-show-body {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .post-show-author-info {
@@ -101,4 +104,9 @@
 .delete-button {
     margin-left: 5px;
     padding-left: 5px;
+}
+
+.comment-form {
+    margin-left: 100px;
+    margin-right: 100px;
 }

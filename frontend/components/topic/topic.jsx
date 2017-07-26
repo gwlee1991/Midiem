@@ -13,14 +13,13 @@ class Topic extends React.Component {
   }
 
   render(){
-    console.log(this.props.posts);
     return(
-      <div>
-        <div>
+      <div className="topic-show-page">
+        <div className="topic-show-title">
           {this.props.topic.title}
         </div>
-        <div>
-          <ul>
+        <div className="topic-posts-container">
+          <ul className="topic-posts">
             {this.props.posts.map(post => <PostItem key={post.id} post={post} />)}
           </ul>
         </div>

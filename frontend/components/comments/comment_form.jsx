@@ -28,9 +28,9 @@ class CommentForm extends React.Component {
 
 
   render(){
-    console.log(this.props.currentPost)
     return (
-      <div>
+      <div className='comment-form'>
+        <h3> Responses</h3>
         <form onSubmit={this.handleSubmit}>
           <textarea
             type="text"

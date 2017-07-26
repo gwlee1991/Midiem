@@ -59,7 +59,12 @@ class Post extends React.Component {
                 <section className="post-show-imageholder">
                     <section className="post-show-author-info">
                         <div className="author-info">
-                            <Link to={`/user/${this.props.currentPost.author.id}`}><span>{this.props.currentPost.author.username}</span></Link>
+                            <Link to={`/user/${this.props.currentPost.author.id}`}>
+                                <span>
+                                    <img className="header-user-image" src={this.props.currentPost.author.image_url} />
+                                    {this.props.currentPost.author.username}
+                                </span>
+                            </Link>
                         </div>
                         {this.renderEditDelete()}
                     </section>
