@@ -15,15 +15,17 @@ class Comments extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     return (
       <div className="comment-box">
-        <div>
+        <div className="body comment-author-info">
+          <Link to={`/user/${this.props.comment.author.id}`}><img className="comment-author-image" src={this.props.comment.author.image_url} /></Link>
           <Link to={`/user/${this.props.comment.author.id}`}>{this.props.comment.author.username}</Link>
         </div>
-        <div>
+        <div className="body comment-body">
           {this.props.comment.body}
-          <button className='delete-comment-button' onClick={this.handleDelete}>Delete</button>
+        </div>
+        <div className="delete-comment-button-container">
+          <button className='delete-comment-button body' onClick={this.handleDelete}>Delete</button>
         </div>
       </div>
     )

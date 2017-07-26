@@ -76,7 +76,7 @@ class PostForm extends React.Component{
                             ref='title'
                             onChange={this.update('title')}
                             value={this.state.title}
-                            className='new-post-title-input'
+                            className='new-post-title-input title'
                             placeholder='Title...'
                         />
                     </section>

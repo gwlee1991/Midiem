@@ -13,7 +13,6 @@ class PostEditForm extends React.Component {
         }
         this.update = this.update.bind(this);
         this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
-        this.upload = this.upload.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -48,47 +47,27 @@ class PostEditForm extends React.Component {
         }
     }
 
-    upload(e){
-        e.preventDefault();
-        cloudinary.openUploadWidget(
-            window.cloudinary_options,
-            ((error, images) => {
-                if(error === null) {
-                    this.setState({
-                        image_url: images[0].url
-                    })
-                }
-            })
-        )
-    }
     
     render(){
         return (
             <div className="edit-post-form">
                 <form onSubmit={this.handleSubmit}>
-                    <div className="button-container">
-                        <button onClick={this.upload} className="upload-button">Upload<i className="fa fa-picture-o" aria-hidden="true"></i></button>
-                    </div>
-                    <div>
-                        {this.state.image_url === '' ? null :
-                             <div>
-                                <img src={this.state.image_url} />
-                            </div>}
-                    </div>
                     <section className='edit-post-title-holder'>
                         <input
                             type="text"
                             ref='title'
                             onChange={this.update('title')}
                             value={this.state.title}
-                            className='new-post-title-input'
-                            placeholder='Title...'
+                            className='new-post-title-input title'
+                            autoFocus="autofocus"
                         />
                     </section>
                     <br />
                     <section className='edit-post-body-holder'>
                         <textarea type="text"
                             className="body"
+                            cols="80"
+                            rows="20"
                             placeholder="Tell us about your story..."
                             value={this.state.body}
                             onChange={this.update('body')} 
@@ -100,7 +79,7 @@ class PostEditForm extends React.Component {
                     </div>
                     <br />
                     <section className='edit-post-submit-button-container'>
-                        <input className="edit-post-submit-button" type="submit" value="Submit" />
+                        <input className="edit-post-submit-button" type="submit" value="Edit" />
                     </section>
                 </form>
             </div>

@@ -40,7 +40,7 @@ class Post extends React.Component {
         if (this.props.session.currentUser){
             if (this.props.currentPost.author.id === this.props.session.currentUser.id) {
                 return (
-                    <div className="edit-delete-button">
+                    <div className="edit-delete-button body">
                         <Link to={`/edit/${this.props.currentPost.id}`}><button className='edit-button'>Edit</button></Link>
                         <button className="delete-button" onClick={this.handleDelete}>Delete</button>
                     </div>
@@ -67,7 +67,6 @@ class Post extends React.Component {
                                     </span>
                                 </Link>
                             </div>
-                            {this.renderEditDelete()}
                         </section>
                             <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                             <Link to={`/user/${this.props.currentPost.author.id}`}>
@@ -77,6 +76,7 @@ class Post extends React.Component {
                     <section className="post-show-content">
                         <p className='post-show-body body'>{this.props.currentPost.body}</p>
                     </section>
+                        {this.renderEditDelete()}
                     <section>
                         <CommentFormContainer />
                     </section>

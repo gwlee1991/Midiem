@@ -24,6 +24,8 @@
   margin: 10px;
   padding: 10px;
   border-radius: 25px;
+  width: 32px;
+  height: 32px;
 }
 
 .response-body {
@@ -53,5 +55,39 @@
 }
 
 .comment-submit-button:hover {
+  background-color: lightblue;
+}
+.comment-author-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-box {
+  box-shadow: 0 0 8px 2px lightgray;
+  width: 480px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comment-body {
+  margin: 10px;
+  padding: 10px;
+}
+
+.delete-comment-button-container {
+  margin: 10px;
+  padding: 10px;
+}
+
+.delete-comment-button {
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.delete-comment-button:hover {
   background-color: lightblue;
 }

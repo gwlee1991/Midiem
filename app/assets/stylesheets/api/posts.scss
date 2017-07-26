@@ -32,12 +32,14 @@
 }
 
 .post-main {
-    width: 650px;
+    min-width: 650px;
 }
 
 .post-container {
     margin-bottom: 100px;
+    padding-right: 100px;
     margin-right: 100px;
+    padding-left: 100px;
     margin-left: 100px;
     display: flex;
     justify-content: center;
@@ -69,7 +71,7 @@
 }
 
 .post-show-imageholder {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     margin-top: 0px;
     padding-top: 20px;
 }
@@ -114,11 +116,25 @@
 }
 
 .edit-button {
-    margin-right: 5px;
-    padding-right: 5px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid red;
+    color: red;
 }
 
 .delete-button {
-    margin-left: 5px;
-    padding-left: 5px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid red;
+    color: red;
+}
+
+.edit-delete-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px;
+    padding: 10px;
 }

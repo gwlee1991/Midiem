@@ -1,14 +1,32 @@
 .new-post-form {
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-left: 100px;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid lightgray;
+}
+
+.edit-post-form {
+    margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-right: 100px;
     padding-top: 50px;
     display: flex;
+    justify-content: center;
     border-top: 1px solid lightgray;
+    margin-bottom: 50px;
 }
 
 .new-post-title-input {
     font-size: 34px;
 }
+
+
 
 .new-post-title-input::placeholder {
     font-size: 34px;
@@ -25,6 +43,7 @@ textarea {
 
 .new-post-submit-button-container {
     display: flex;
+    margin-right: 100px;
     justify-content: flex-end;
 }
 
@@ -35,6 +54,27 @@ textarea {
     border-radius: 25px;
 }
 
+.edit-post-submit-button {
+    border: 1px lightgray solid;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
 .new-post-submit-button:hover {
     background-color: lightblue;
+}
+
+.edit-post-submit-button:hover {
+    background-color: lightblue;
+}
+
+.edit-post-title-holder {
+    border-left: 1px solid lightgray;
+    padding-left: 5px;
+}
+
+.edit-post-body-holder {
+    padding-left: 5px;
+    border-left: 1px lightgray solid;
 }
