@@ -1,3 +1,44 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-container {
+  margin-top: 50px;
+  margin-left: 100px;
+  padding-left: 100px;
+  margin-right: 100px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.username {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

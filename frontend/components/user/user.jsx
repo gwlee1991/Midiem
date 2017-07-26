@@ -12,26 +12,24 @@ class User extends React.Component{
 
   render(){
     return (
-      <div>
-        <div>
-          <section>
-            <div>
+      <div className="profile-container">
+        <div className="user">
+          <div className="user-info">
+            <div className="username title">
               <h2>{this.props.currentUser.username}</h2>
             </div>
-            <div>
-              <img src={this.props.currentUser.image_url} />
+            <div className="user-image">
+              <img className="profile-image" src={this.props.currentUser.image_url} />
             </div>
-          </section>
+          </div>
+          <div className="tabs body">
+            <h3>Authored Posts</h3>
+          </div>
         </div>
-        <div>
-          <h3>Authored Posts</h3>
-        </div>
-        <div>
-          <ul>
-            {this.props.posts.map(post => {
-              return <PostItem key={post.id} post={post}/>
-            })}
-          </ul>
+        <div className="authored-posts">
+          {this.props.posts.map(post => {
+            return <PostItem key={post.id} post={post}/>
+          })}
         </div>
       </div>
     )

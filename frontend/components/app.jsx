@@ -25,7 +25,7 @@ const App = () => (
         <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
         <Route path='/topics/:topicId' component={TopicContainer} />
         <Route exact path='/user/:userId/profile' component={UserContainer} />
-        <Route path='/user/:userId' component={AuthorContainer} />
+        <Route exact path='/user/:userId' component={AuthorContainer} />
         <Route path='/search' component={SearchContainer} />
     </div>
 );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PostItem from '../posts/post_item';
 
-class User extends React.Component{
+class Author extends React.Component{
   constructor(props){
     super(props);
   }
@@ -11,36 +11,29 @@ class User extends React.Component{
   }
 
   render(){
-    if (this.props.posts.length>0){
-
-      console.log(this.props.posts[0].author);
-    }
-    console.log(this.props.posts);
     return (
-      <div>
-        <div>
-          <section>
-            <div>
+      <div className="profile-container">
+        <div className="user">
+          <div className="user-info">
+            <div className="username title">
               <h2>{this.props.posts.length > 0 ? this.props.posts[0].author.username : ""}</h2>
             </div>
-            <div>
-              {this.props.posts.length > 0 ? <img src={this.props.posts[0].author.image_url} /> : ""}
+            <div className="user-image">
+              {this.props.posts.length > 0 ? <img className="profile-image" src={this.props.posts[0].author.image_url} /> : ""}
             </div>
-          </section>
+          </div>
+          <div className="tabs body">
+            <h3>Authored Posts</h3>
+          </div>
         </div>
-        <div>
-          <h3>Authored Posts</h3>
-        </div>
-        <div>
-          <ul>
-            {this.props.posts.map(post => {
-              return <PostItem key={post.id} post={post}/>
-            })}
-          </ul>
+        <div className="authored-posts">
+          {this.props.posts.map(post => {
+            return <PostItem key={post.id} post={post}/>
+          })}
         </div>
       </div>
     )
   }
 }
 
-export default User;
+export default Author;

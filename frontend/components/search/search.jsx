@@ -27,9 +27,16 @@ class Search extends React.Component {
     )
     
     return (
-      <div>
-        <input type="text" onChange={this.update('search')} />
-         <div>
+      <div className="search-container">
+        <div className="search-bar title">
+          <input 
+            type="text" 
+            onChange={this.update('search')} 
+            placeholder="Search Midiem"
+            autoFocus="autofocus"
+          />
+        </div>
+         <div className="search-results">
            {this.state.search === "" ? "" : filterPost.map(post => <PostItem key={post.id} post={post}/>)}
         </div> 
       </div>
