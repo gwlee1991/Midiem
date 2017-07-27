@@ -15,11 +15,11 @@ class User extends React.Component{
       <div className="profile-container">
         <div className="user">
           <div className="user-info">
-            <div className="username title">
-              <h2>{this.props.currentUser.username}</h2>
-            </div>
             <div className="user-image">
               <img className="profile-image" src={this.props.currentUser.image_url} />
+            </div>
+            <div className="username title">
+              <h2>{this.props.currentUser.username}</h2>
             </div>
           </div>
           <div className="tabs body">

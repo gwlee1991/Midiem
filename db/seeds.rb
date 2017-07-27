@@ -11,7 +11,8 @@ Post.destroy_all
 Comment.destroy_all
 
 guest = User.create(username: "guest", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_32/v1501014959/default-user-image_gvyan3.png")
-user = User.create(username: "user", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_32/v1501014959/default-user-image_gvyan3.png")
+user = User.create(username: "midiemiscool", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_297/v1501116609/pexels-photo-487600_qjky6o.jpg")
+
 
 
 topic2 = Topic.create(title: "Technology")
