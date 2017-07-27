@@ -7,7 +7,8 @@ import {selectAllTopics} from '../../reducers/selector';
 const mapStateToProps = state => {
     return  {
         currentUser: state.session.currentUser,
-        topics: selectAllTopics(state)
+        topics: selectAllTopics(state),
+        errors: state.currentPost.errors
     }
 };
 

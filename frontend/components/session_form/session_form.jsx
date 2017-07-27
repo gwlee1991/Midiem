@@ -58,13 +58,13 @@ class SessionForm extends React.Component {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
-                {error}
-            </li>
+          <li className="errors" key={`error-${i}`}>
+            {error}
+          </li>
         ))}
       </ul>
-  );
-}
+    );
+  }
 
   render(){
     if (this.props.formType === "login") {
@@ -114,11 +114,11 @@ class SessionForm extends React.Component {
               onChange={this.update('username')}
             />
             <input
-            className="password-input body"
-            type="password"
-            value={this.state.password}
-            placeholder='password'
-            onChange={this.update('password')}
+              className="password-input body"
+              type="password"
+              value={this.state.password}
+              placeholder='password'
+              onChange={this.update('password')}
             />
           <br />
           <input className="auth-button body" type="submit" value="Sign Up" />

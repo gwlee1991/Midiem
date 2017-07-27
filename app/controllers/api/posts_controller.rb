@@ -22,10 +22,10 @@ class Api::PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.author_id = current_user.id
         @post.image_url = "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500922756/pexels-photo-461947_ygh99o.jpg" if @post.image_url == ""
-        if @post.save!
+        if @post.save
             render "/api/posts/show"
         else
-            render json: @posts.errors.full_messages, status: 422
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
@@ -34,7 +34,7 @@ class Api::PostsController < ApplicationController
         if @post.update_attributes(post_params)
             render "/api/posts/show"
         else
-            render json: @posts.errors.full_messages, status: 422
+            render json: @post.errors.full_messages, status: 422
         end
     end
 

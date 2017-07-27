@@ -47,6 +47,18 @@ class PostEditForm extends React.Component {
         }
     }
 
+    renderErrors(){
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className="errors body" key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+    }
+
     
     render(){
         return (
@@ -78,6 +90,7 @@ class PostEditForm extends React.Component {
                         <label>Please select a topic for your story: {this.renderTopicDropbox()}</label>
                     </div>
                     <br />
+                    {this.renderErrors()}
                     <section className='edit-post-submit-button-container'>
                         <input className="edit-post-submit-button" type="submit" value="Edit" />
                     </section>

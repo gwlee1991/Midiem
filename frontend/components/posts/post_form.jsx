@@ -14,6 +14,7 @@ class PostForm extends React.Component{
         this.update = this.update.bind(this);
         this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
         this.upload = this.upload.bind(this);
+        console.log(this.props);
     }
 
 
@@ -46,6 +47,18 @@ class PostForm extends React.Component{
             })
         )
     }
+
+    renderErrors(){
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className="errors body" key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
     renderTopicDropbox(){
         if(this.props.topics.length > 0){
@@ -96,6 +109,7 @@ class PostForm extends React.Component{
                         <label>Please select a topic for your story: {this.renderTopicDropbox()}</label>
                     </div>
                     <br />
+                    {this.renderErrors()}
                     <section className='new-post-submit-button-container'>
                         <input className="new-post-submit-button" type="submit" value="Submit" />
                     </section>

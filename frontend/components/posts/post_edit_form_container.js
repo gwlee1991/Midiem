@@ -11,7 +11,8 @@ const mapStateToProps = (state, props) => {
     return {
         currentPost: state.currentPost,
         currentUser: state.session.currentUser,
-        topics: selectAllTopics(state)
+        topics: selectAllTopics(state),
+        errors: state.currentPost.errors
     }
 };
 
