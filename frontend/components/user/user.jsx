@@ -19,7 +19,8 @@ class User extends React.Component{
               <img className="profile-image" src={this.props.currentUser.image_url} />
             </div>
             <div className="username title">
-              <h2>{this.props.currentUser.username}</h2>
+              <h2 className="body">{this.props.currentUser.username}</h2>
+              <p className="body greeting">This site was built with HTML/CSS/React/Redux/Javascript/Ruby on Rails within 9 days. Thank you for visiting</p>
             </div>
           </div>
           <div className="tabs body">

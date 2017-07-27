@@ -81,7 +81,7 @@ class Post extends React.Component {
                         {this.props.session.currentUser ? <CommentFormContainer /> : ""}
                     </section>
                     <section>
-                        {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments currentUser={this.props.session.currentUser} destroyComment={this.props.destroyComment} key={comment.id} comment={comment} />) : ""}
+                        {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments currentUser={this.props.session.currentUser} destroyComment={this.props.destroyComment} key={comment.id + 1} comment={comment} />) : ""}
                     </section>
                 </div>
             </div>

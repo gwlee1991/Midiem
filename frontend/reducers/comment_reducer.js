@@ -6,7 +6,8 @@ const nullComments = {
   1: {
     body: "",
     author: {},
-    post_id: ""
+    post_id: "",
+    written_on: ""
   }
 }
 

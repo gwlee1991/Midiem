@@ -64,6 +64,15 @@
     align-items: center;
 }
 
+.date {
+  margin-top: 3px;
+  font-size: 10px;
+}
+.comment-author-detailed-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .comment-box {
   box-shadow: 0 0 8px 2px lightgray;
   width: 480px;

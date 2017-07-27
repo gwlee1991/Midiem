@@ -23,6 +23,10 @@
   width: 150px;
   border-radius: 75px;
 }
+.greeting {
+  margin-top: 10px;
+  font-size: 14px;
+}
 
 .user-info {
   display: flex;
@@ -37,6 +41,7 @@
 .username {
   font-size: 32px;
   font-weight: bold;
+  margin-left: 20px;
 }
 
 .tabs {
