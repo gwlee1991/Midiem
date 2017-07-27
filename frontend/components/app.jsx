@@ -11,6 +11,7 @@ import TopicContainer from './topic/topic_container';
 import UserContainer from './user/user_container'
 import SearchContainer from './search/search_container';
 import AuthorContainer from './user/author_container';
+import Footer from './footer/footer';
 
 const App = () => (
     <div>
@@ -24,9 +25,10 @@ const App = () => (
         <ProtectedRoute exact path='/new-post' component={PostFormContainer} />
         <ProtectedRoute path='/edit/:postId' component={PostEditFormContainer} />
         <Route path='/topics/:topicId' component={TopicContainer} />
-        <Route exact path='/user/:userId/profile' component={UserContainer} />
+        <ProtectedRoute exact path='/user/:userId/profile' component={UserContainer} />
         <Route exact path='/user/:userId' component={AuthorContainer} />
         <Route path='/search' component={SearchContainer} />
+        <Footer />
     </div>
 );
 
