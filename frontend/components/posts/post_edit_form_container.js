@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PostEditForm from './post_edit_form';
-import { updatePost, fetchPost } from '../../actions/post_actions';
+import { updatePost, fetchPost, clearErrors } from '../../actions/post_actions';
 import {fetchAllTopics} from '../../actions/topic_actions';
 import {selectPost} from '../../reducers/selector';
 import {withRouter} from 'react-router';
@@ -20,7 +20,8 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => ({
     updatePost: (post) => dispatch(updatePost(post)),
     fetchPost: () => dispatch(fetchPost(props.match.params.postId)),
-    fetchAllTopics: () => dispatch(fetchAllTopics())
+    fetchAllTopics: () => dispatch(fetchAllTopics()),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default withRouter(connect(

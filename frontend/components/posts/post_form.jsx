@@ -34,6 +34,10 @@ class PostForm extends React.Component{
         this.props.fetchAllTopics();
     }
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+
     upload(e){
         e.preventDefault();
         cloudinary.openUploadWidget(

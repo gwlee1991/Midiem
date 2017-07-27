@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PostForm from './post_form';
-import {createPost} from '../../actions/post_actions';
+import {createPost, clearErrors} from '../../actions/post_actions';
 import {fetchAllTopics} from '../../actions/topic_actions';
 import {selectAllTopics} from '../../reducers/selector';
 
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   createPost: post => dispatch(createPost(post)),
-  fetchAllTopics: () => dispatch(fetchAllTopics())
+  fetchAllTopics: () => dispatch(fetchAllTopics()),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

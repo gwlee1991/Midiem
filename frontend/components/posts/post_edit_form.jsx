@@ -28,6 +28,10 @@ class PostEditForm extends React.Component {
         };
     }
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+
     componentDidMount(){
         this.props.fetchPost(this.props.match.postId).then(action => {
             this.setState(action.currentPost)});

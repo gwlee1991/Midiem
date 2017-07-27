@@ -62,7 +62,7 @@ class Post extends React.Component {
                             <div className="author-info">
                                 <Link to={`/user/${this.props.currentPost.author.id}`}>
                                     <span>
-                                        <img className="header-user-image" src={this.props.currentPost.author.image_url} />
+                                        <img className="post-author-image" src={this.props.currentPost.author.image_url} />
                                         {this.props.currentPost.author.username}
                                     </span>
                                 </Link>
@@ -78,7 +78,7 @@ class Post extends React.Component {
                     </section>
                         {this.renderEditDelete()}
                     <section>
-                        <CommentFormContainer />
+                        {this.props.session.currentUser ? <CommentFormContainer /> : ""}
                     </section>
                     <section>
                         {this.props.comments.length > 0 ? this.selectComment().map(comment => <Comments currentUser={this.props.session.currentUser} destroyComment={this.props.destroyComment} key={comment.id} comment={comment} />) : ""}
