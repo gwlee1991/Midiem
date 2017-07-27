@@ -38,6 +38,11 @@
   border-bottom: 1px solid lightgray;
 }
 
+.user-image {
+  display: flex;
+  flex-direction: column;
+}
+
 .username {
   font-size: 32px;
   font-weight: bold;
@@ -48,4 +53,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.profile-upload-button {
+  font-size: 12px;
+}
+
+.profile-upload-button:hover {
+  font-weight: 700;
+}
+
+.upload-profile-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirm-update {
+  color: green;
+}
+
+.decline-update {
+  color: red;
 }

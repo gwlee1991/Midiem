@@ -1,9 +1,9 @@
 import React from 'react';
 
-class PostForm extends React.Component{
-    constructor(props){
+class PostForm extends React.Component {
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             title: "",
             author_id: this.props.currentUser.id,
             body: "",
@@ -26,24 +26,24 @@ class PostForm extends React.Component{
 
     update(field) {
         return (e) => {
-            this.setState({ [field] : e.target.value })
+            this.setState({ [field]: e.target.value })
         };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchAllTopics();
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.props.clearErrors();
     }
 
-    upload(e){
+    upload(e) {
         e.preventDefault();
         cloudinary.openUploadWidget(
             window.cloudinary_options,
             ((error, images) => {
-                if(error === null) {
+                if (error === null) {
                     this.setState({
                         image_url: images[0].url
                     })
@@ -52,29 +52,29 @@ class PostForm extends React.Component{
         )
     }
 
-    renderErrors(){
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li className="errors body" key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li className="errors body" key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
-    renderTopicDropbox(){
-        if(this.props.topics.length > 0){
+    renderTopicDropbox() {
+        if (this.props.topics.length > 0) {
             return (
                 <select value={this.state.topic_id} onChange={this.update('topic_id')} >
-                    {this.props.topics.map(topic => <option key={topic.id}value={topic.id}>{topic.title}</option>)}
+                    {this.props.topics.map(topic => <option key={topic.id} value={topic.id}>{topic.title}</option>)}
                 </select>
             )
         }
     }
 
-    render(){
+    render() {
         return (
             <div className="new-post-form">
                 <form onSubmit={this.handleSubmit}>
@@ -83,7 +83,7 @@ class PostForm extends React.Component{
                     </div>
                     <div>
                         {this.state.image_url === '' ? null :
-                             <div>
+                            <div>
                                 <img src={this.state.image_url} />
                             </div>}
                     </div>
@@ -105,7 +105,7 @@ class PostForm extends React.Component{
                             className="body"
                             placeholder="Tell us about your story..."
                             value={this.state.body}
-                            onChange={this.update('body')} 
+                            onChange={this.update('body')}
                         />
                     </section>
                     <br />
