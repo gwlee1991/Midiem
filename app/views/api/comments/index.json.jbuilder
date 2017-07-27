@@ -7,6 +7,7 @@
             json.username comment.user.username
             json.image_url comment.user.image_url
         end
+        json.written_on comment.created_at
         json.post_id comment.post_id
     end
 end

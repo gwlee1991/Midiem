@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.topic-section-container {
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+}
 
 .topic-navbar {
     height: 50px;
@@ -38,7 +42,7 @@
 .splash-logo {
     background-image: url("http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1280/v1501034782/pexels-photo-403571_vpe6za.jpg");
     background-repeat: none;
-    background-position: bottom right;
+    background-position: center right;
     max-width: 1280;
     color: black;
     height: 300px;
