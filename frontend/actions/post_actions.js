@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/post_api_util';
+import * as LikeAPIUtil from '../util/like_api_util';
 
 export const RECEIVE_CURRENT_POST = "RECEIVE_CURRENT_POST";
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
@@ -73,4 +74,16 @@ export const destroyPost = id => dispatch => (
     APIUtil.destroyPost(id).then(() => dispatch(deletePost(id))).then(() => (
         dispatch(receivePost(null))
     ))
+);
+
+export const fetchLikedPosts = id => dispatch => (
+    APIUtil.fetchLikedPosts(id).then(posts=> dispatch(receivePosts(posts)))
+);
+
+export const createLike = like => dispatch => (
+    LikeAPIUtil.createLike(like).then(post => dispatch(receivePost(post)))
+);
+
+export const destroyLike = postId => dispatch => (
+    LikeAPIUtil.destroyLike(postId).then(post => dispatch(receivePost(post)))
 );

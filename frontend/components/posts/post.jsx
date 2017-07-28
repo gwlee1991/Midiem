@@ -1,34 +1,35 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Comments from '../comments/comments';
 import CommentFormContainer from '../comments/comment_form_container';
 
 
 class Post extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.renderEditDelete = this.renderEditDelete.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.selectComment = this.selectComment.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchComments(this.props.match.params.postId);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.fetchPost()
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.props.clearState();
     }
 
-    selectComment(){
+    selectComment() {
         let comments = []
 
         this.props.comments.forEach(comment => {
-            if(comment.post_id === this.props.currentPost.id){
+            if (comment.post_id === this.props.currentPost.id) {
                 comments.push(comment)
             }
         });
@@ -36,12 +37,12 @@ class Post extends React.Component {
         return comments;
     }
 
-    handleDelete(e){
+    handleDelete(e) {
         this.props.destroyPost(this.props.currentPost.id).then(posts => this.props.history.push("/"))
     }
 
-    renderEditDelete(){
-        if (this.props.session.currentUser){
+    renderEditDelete() {
+        if (this.props.session.currentUser) {
             if (this.props.currentPost.author.id === this.props.session.currentUser.id) {
                 return (
                     <div className="edit-delete-button body">
@@ -54,6 +55,26 @@ class Post extends React.Component {
             }
         } else {
             return "";
+        }
+    }
+
+    handleUpdate(postId) {
+        if (this.props.currentPost.liked) {
+            return () => this.props.destroyLike(postId);
+        } else {
+            return () => this.props.createLike({ post_id: postId });
+        }
+    }
+
+    toggleHeart() {
+        if (this.props.currentPost.liked) {
+            return (
+                <i className="fa fa-heart" aria-hidden="true"></i>
+            );
+        } else {
+            return (
+                <i className="fa fa-heart-o" aria-hidden="true"></i>
+            );
         }
     }
 
@@ -72,15 +93,17 @@ class Post extends React.Component {
                                 </Link>
                             </div>
                         </section>
-                            <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
-                            <Link to={`/user/${this.props.currentPost.author.id}`}>
-                                <div className='post-cover-image'><img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' /></div>
-                            </Link>
+                        <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
+                        <Link to={`/user/${this.props.currentPost.author.id}`}>
+                            <div className='post-cover-image'><img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' /></div>
+                        </Link>
                     </section>
                     <section className="post-show-content">
                         <p className='post-show-body'>{this.props.currentPost.body}</p>
                     </section>
-                        {this.renderEditDelete()}
+                    <button id='heart' className="white" onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleHeart()}</button>
+                    <h5>{this.props.currentPost.likes}</h5>
+                    {this.renderEditDelete()}
                     <section>
                         {this.props.session.currentUser ? <CommentFormContainer /> : ""}
                     </section>

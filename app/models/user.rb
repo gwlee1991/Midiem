@@ -24,6 +24,15 @@ class User < ApplicationRecord
     
     has_many :comments
 
+    has_many :post_likes,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Like
+
+    has_many :liked_posts,
+        through: :post_likes,
+        source: :post
+
     attr_reader :password
 
     def self.find_by_credentials(username, password)

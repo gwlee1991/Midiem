@@ -34,3 +34,11 @@ export const destroyPost = id => (
         url: `/api/posts/${id}`
     })
 );
+
+export const fetchLikedPosts = id => (
+    $.ajax({
+        method: "GET",
+        url: '/api/likes',
+        data: {id}
+    })
+);
