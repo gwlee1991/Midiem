@@ -31,69 +31,45 @@ When writing a new story, users may upload a cover image to their story. I have 
 
 To protect user's password, instead of passing back the actually password to the backend and frontend, I have used BCrypt to encypt the user's password by salting and hashing. The encrypted password, called a `password_digest` is what is being saved into the database. Along with the `password_digest`, the `username`, `session_token`, and `image_url` is stored in the users table. Just like story `image_url`s the user has a default image when first created. The user is able to upload a new profile picture in their profile page. I have created an "Auth" route and "Protected" routes. "Auth" route makes sure that logged in users don't have access to the log in page and the "Protected" routes redirects an user to the login/signup page if they are not logged in. I haven't put too much restrictions for non-logged-in users so they are able to view all stories and comments but not able to write/edit/delete stories or comments.
 
-Once in session, the user may click to "Edit" their information from their own profile page. This action turns the page into an interactive form with pre-filled fields. Using the same Cloudinary widget, the user may add a profile picture, which instantaneously updates all components that render the user's image (including the navigation bar, comment form, and story form).
 
 ```javascript
-export const updateProfile = user => dispatch => (
-  UserAPIUtil.updateProfile(user).then(updatedProfile => {
-    dispatch(receiveUserProfile(updatedProfile));
-    dispatch(receiveCurrentUser(updatedProfile));
-    dispatch(clearErrors());
-  }, err => (
-    dispatch(receiveErrors(err.responseJSON))
-  ))
+export const updateUser = user => dispatch => (
+    APIUtil.updateUser(user).then(user => {
+        dispatch(receiveCurrentUser(user));
+    })
 );```
 
 ### Stories & Comments
+
+When the user clicks on a story's title or image, they will be redirected to the actual story show page. At the bottom of the show page, the user (if logged in) will be able to view and leave comments for that story. If not logged in, the user will simply just be able to view the comments. The author of the post will be able to delete or edit the story where on click will be redirected to an edit page. If the post is deleted, all the comments will not only be deleted from the frontend but from the database as well due to the dependent destroy on the posts table.
 
 The user may click on a particular story in the feed to view it in its entirety. They can click the heart to like or unlike it and scroll to the bottom of the page to read and post comments. Stories can be edited or deleted by the original author. Comments can also be destroyed by the original author.
 
 A user may click on an author's name or image (anywhere in the site) and be taken to that author's profile page. The user can see how many followers/following the author has, and click to follow or unfollow them from there.
 
-### Likes & Follows
+![alt text](http://res.cloudinary.com/dbtdkqyeo/image/upload/v1501269394/Screen_Shot_2017-07-28_at_12.15.31_sdiv3p.png "story page with comments at the bottom")
 
-The user may toggle between two miniature story feeds: "Profile" contains all stories that the author has liked, and "Recommends" lists all stories written by people that that particular author follows. The feeds are curated by querying the "Likes", "Follows" and "Stories" database tables via the respective controllers, and sending only applicable stories back to the React component. These mini-feeds update instantaneously when the user alters their likes and/or follows.
 
-Here is the logic for toggling the mini-feeds, and for tailoring user options based on who is logged-in:
+### Search
 
+By clicking on the magnifying glass on the header, the user is directed to a search page where the user is able to search the stories by their, title, contents, and author's username. The style was kept as minimalistic to match how the actual Medium search component looked like. The search implemented a array method `filter` which did a fontend search by grabbing the posts(stories) that had the search query included either in their title, body, or author's username. The code to initiate the search is below.
 
 ```javascript
-componentWillReceiveProps(nextProps) {
-  const { match, fetchProfile, fetchRecommendedStories,
-    fetchLikedStories, userProfile } = this.props;
-  if (match.params.userId !== nextProps.match.params.userId) {
-    fetchProfile(nextProps.match.params.userId);
-  }
-  if (match.path !== nextProps.match.path) {
-    if (nextProps.match.path === "/users/:userId/recommends") {
-      fetchRecommendedStories(userProfile.id);
-    } else {
-      fetchLikedStories(userProfile.id);
-    }
-  }
-}
-
-userOptions() {
-  const { userProfile, currentUser } = this.props;
-  if (userProfile.id === currentUser.id) {
-    if (userProfile.username !== "Guest") {
-      return (
-        <Link to={`/users/${currentUser.id}/update`}
-          className="follow-unfollow">
-          Edit
-        </Link>
-      );
-    }
-  } else {
-    return (
-      <button className="follow-unfollow"
-        onClick={this.handleUpdate(userProfile.id)}>
-        {this.toggleFollowButton()}
-      </button>
+const filterPost = posts.filter(
+      post =>
+        post.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
+        post.body.toLowerCase().includes(this.state.search.toLowerCase()) ||
+        post.author.username.toLowerCase().includes(this.state.search.toLowerCase())
     );
-  }
-}```
+```
+
+### Topics
+
+Below the header is a topic navigation bar. It has all the lists of topics available. By click on the topic, the user will be navigated to a new page with all the posts that have the `topic_id` that matches `topic.id`. The search was done in the frontend by grabbing all the stories on load and then search through the stories and filter out the stories that have the match.
+
+![alt text](http://res.cloudinary.com/dbtdkqyeo/image/upload/v1501273755/Screen_Shot_2017-07-28_at_13.28.50_vhxytd.png "story page with comments at the bottom")
+
 
 ## Plans for the Future
 
-I will keep revisiting this codebase to refactor and optimize it further. I will be adding a search bar that filters results, as well as a "Replies" component that allows users to start threads on comments. My goal is to use this web application to build out a desktop and mobile application. This codebase is a great jumping off point for learning and implementing new technologies, and I definitely plan on doing both of those things!
+A lot of the queries for this project was done on the frontend for deeper understanding of redux. However, I will visit this codebase in the future so that all the querying is done on the backend which should not only DRY up the code on the frontend but also provide better user experience by improving speed. Also, common features, such as likes and follows, were omitted from the project. I plan to spend some time working on those two features.
