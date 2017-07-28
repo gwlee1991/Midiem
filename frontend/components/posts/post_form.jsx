@@ -14,7 +14,6 @@ class PostForm extends React.Component {
         this.update = this.update.bind(this);
         this.renderTopicDropbox = this.renderTopicDropbox.bind(this);
         this.upload = this.upload.bind(this);
-        console.log(this.props);
     }
 
 
