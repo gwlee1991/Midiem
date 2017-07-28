@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 // if currentUser Link to write story, userprofile, search, logout
 
 class Header extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
-    renderLinks(){
-        if (this.props.currentUser === null){
+    renderLinks() {
+        if (this.props.currentUser === null) {
             return (
                 <div className='auth-links'>
                     <Link to="/search"><button><i className="fa fa-search" aria-hidden="true"></i></button></Link>
@@ -32,7 +32,7 @@ class Header extends React.Component {
         }
     }
 
-    renderNewPost(){
+    renderNewPost() {
         return (
             <span className='new-post-button'>
                 <Link to='/new-post'>Write New Story</Link>
@@ -40,7 +40,7 @@ class Header extends React.Component {
         )
     }
 
-    renderDefault(){
+    renderDefault() {
         return (
             <div className='logo'>
                 <Link to='/' className='logo-img'><img src="http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_45/v1500415014/logo_dlhocm.png" height="10" width="10" /></Link>
@@ -49,12 +49,14 @@ class Header extends React.Component {
         )
     }
 
-    render(){
+    render() {
         return (
-            <header className='header-nav'>
-                {this.renderDefault()}
-                {this.renderLinks()}
-            </header>
+            <div className="header-container">
+                <header className='header-nav'>
+                    {this.renderDefault()}
+                    {this.renderLinks()}
+                </header>
+            </div>
         )
     }
 }

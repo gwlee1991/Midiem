@@ -4,7 +4,6 @@ import rootReducer from '../reducers/root_reducer';
 import { createLogger } from 'redux-logger';
 
 const middlewares = [thunk];
-console.log(createLogger);
 if (process.env.NODE_ENV !== 'production') {
   // must use 'require' (import only allowed at top of file)
 //   const createLogger = require('redux-logger');
