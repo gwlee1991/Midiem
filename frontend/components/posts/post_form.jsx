@@ -82,8 +82,8 @@ class PostForm extends React.Component {
                     </div>
                     <div>
                         {this.state.image_url === '' ? null :
-                            <div>
-                                <img src={this.state.image_url} />
+                            <div className="post-cover-image">
+                                <img className="cover-image" src={this.state.image_url} />
                             </div>}
                     </div>
                     <section className='new-post-title-holder'>
