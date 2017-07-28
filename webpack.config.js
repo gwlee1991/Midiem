@@ -28,24 +28,25 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
+  plugins: plugins,
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
   devtool: 'source-maps',
   module: {
     loaders: [
-    {
-      test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+      {
+        test: /\.node$/,
+        loader: "node-loader"
       }
-    },
-    {
-      test: /\.node$/,
-      loader: "node-loader"
-    }
     ]
   }
 };
