@@ -58,6 +58,10 @@ class Post extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     handleUpdate(postId) {
         if (this.props.currentPost.liked) {
             return () => this.props.destroyLike(postId);
@@ -67,15 +71,31 @@ class Post extends React.Component {
     }
 
     toggleHeart() {
-        if (this.props.currentPost.liked) {
-            return (
-                <i className="fa fa-heart" aria-hidden="true"></i>
-            );
+        if (this.props.session.currentUser) {
+            if (this.props.currentPost.liked) {
+                return (
+                    <i className="fa fa-heart" aria-hidden="true"></i>
+                );
+            } else {
+                return (
+                    <i className="fa fa-heart-o" aria-hidden="true"></i>
+                );
+            }
         } else {
-            return (
-                <i className="fa fa-heart-o" aria-hidden="true"></i>
-            );
+            return "";
         }
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.currentPost.errors.map((error, i) => (
+                    <li className="errors body" key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     render() {
@@ -93,6 +113,8 @@ class Post extends React.Component {
                                 </Link>
                             </div>
                         </section>
+                        <button id='heart' className="white" onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleHeart()}</button>
+                        <h5 className="body">Likes: {this.props.currentPost.likes}</h5>
                         <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                         <Link to={`/user/${this.props.currentPost.author.id}`}>
                             <div className='post-cover-image'><img className='cover-image' src={this.props.currentPost.image_url} alt='cover-image' /></div>
@@ -101,9 +123,8 @@ class Post extends React.Component {
                     <section className="post-show-content">
                         <p className='post-show-body'>{this.props.currentPost.body}</p>
                     </section>
-                    <button id='heart' className="white" onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleHeart()}</button>
-                    <h5>{this.props.currentPost.likes}</h5>
                     {this.renderEditDelete()}
+                    {this.renderErrors()}
                     <section>
                         {this.props.session.currentUser ? <CommentFormContainer /> : ""}
                     </section>

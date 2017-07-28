@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchPost, updatePost, destroyPost, clearState, createLike, destroyLike} from "../../actions/post_actions";
+import {fetchPost, updatePost, destroyPost, clearErrors, clearState, createLike, destroyLike} from "../../actions/post_actions";
 import Post from './post';
 import {selectPost, selectAllComments} from '../../reducers/selector';
 import {fetchComments, destroyComment} from '../../actions/comment_actions';
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     destroyComment: (id) => dispatch(destroyComment(id)),
     clearState: () => dispatch(clearState()),
     createLike: like => dispatch(createLike(like)),
-    destroyLike: id => dispatch(destroyLike(id))
+    destroyLike: id => dispatch(destroyLike(id)),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(
