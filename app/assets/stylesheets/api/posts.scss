@@ -9,6 +9,7 @@
     flex-direction: row;
     min-width: 300px;
     flex: 1;
+    max-height: 200px;
     border: 1px solid lightgray;
     box-shadow: 0 0 8px 2px lightgray;
 }
@@ -56,6 +57,12 @@
     padding: 10px;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.post-detail-title {
+    max-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .post-title {
