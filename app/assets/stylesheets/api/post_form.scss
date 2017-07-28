@@ -1,8 +1,5 @@
 .new-post-form {
-    margin-left: 100px;
-    padding-left: 100px;
-    margin-right: 100px;
-    padding-left: 100px;
+    max-width: 1000px;
     padding-top: 50px;
     margin-bottom: 50px;
     display: flex;
@@ -11,10 +8,7 @@
 }
 
 .edit-post-form {
-    margin-left: 100px;
-    padding-left: 100px;
-    margin-right: 100px;
-    padding-right: 100px;
+    max-width: 1000px;
     padding-top: 50px;
     display: flex;
     justify-content: center;

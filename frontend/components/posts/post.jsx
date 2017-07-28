@@ -20,6 +20,10 @@ class Post extends React.Component {
         this.props.fetchPost()
     }
 
+    componentWillUnmount(){
+        this.props.clearState();
+    }
+
     selectComment(){
         let comments = []
 
@@ -74,7 +78,7 @@ class Post extends React.Component {
                             </Link>
                     </section>
                     <section className="post-show-content">
-                        <p className='post-show-body body'>{this.props.currentPost.body}</p>
+                        <p className='post-show-body'>{this.props.currentPost.body}</p>
                     </section>
                         {this.renderEditDelete()}
                     <section>

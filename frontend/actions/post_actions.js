@@ -4,7 +4,8 @@ export const RECEIVE_CURRENT_POST = "RECEIVE_CURRENT_POST";
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const DELETE_POST = "DELETE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS"
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const CLEAR_STATE = "CLEAR_STATE";
 
 // sync
 export const receivePost = currentPost => ({
@@ -26,6 +27,10 @@ export const receivePostErrors = errors => ({
     type: RECEIVE_POST_ERRORS,
     errors
 });
+
+export const clearState = () => ({
+    type: CLEAR_STATE
+})
 
 export const clearErrors = () => ({
     type: CLEAR_ERRORS

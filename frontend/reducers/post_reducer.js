@@ -1,4 +1,4 @@
-import {RECEIVE_CURRENT_POST, RECEIVE_POST_ERRORS, CLEAR_ERRORS} from '../actions/post_actions';
+import {RECEIVE_CURRENT_POST, RECEIVE_POST_ERRORS, CLEAR_ERRORS, CLEAR_STATE} from '../actions/post_actions';
 import merge from 'lodash/merge';
 
 const nullPost = {
@@ -18,10 +18,12 @@ const PostReducer = (state = nullPost, action) => {
             const currentPost = action.currentPost;
             return merge({}, state, currentPost);
         case RECEIVE_POST_ERRORS:
-            const errors = action.errors
-            return merge({},state, {errors})
+            const errors = action.errors;
+            return merge({}, state, {errors});
         case CLEAR_ERRORS:
             return Object.assign({}, state, {errors: []})
+        case CLEAR_STATE:
+            return nullPost;
         default:
             return state;
     }

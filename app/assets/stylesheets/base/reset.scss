@@ -53,6 +53,11 @@ html, body, [data-reactroot], #root
   padding-bottom: 30px;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 /* Clearfix */

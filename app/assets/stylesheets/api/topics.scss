@@ -5,15 +5,13 @@
 .topic-section-container {
     margin-bottom: 100px;
     padding-bottom: 50px;
+    max-width: 1000px;
 }
 
 .topic-navbar {
     height: 50px;
-    padding-right: 50px;
-    padding-left: 50px;
-    margin-right: 50px;
-    margin-left: 50px;
-
+    max-width: 1000px;
+    width: 100%;
 }
 
 .topic-item {
@@ -23,6 +21,7 @@
 .topic-navbar-ul {
     display: flex;
     flex-direction: row;
+    width: 100%;
     justify-content: space-around;
     border-bottom: 1px lightgray solid;
     border-top: 1px lightgray solid;
@@ -43,11 +42,9 @@
     background-image: url("http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_1280/v1501034782/pexels-photo-403571_vpe6za.jpg");
     background-repeat: none;
     background-position: center right;
-    max-width: 1280;
+    max-width: 1000px;
     color: black;
     height: 300px;
-    margin-right: 100px;
-    margin-left: 100px;
     display: flex;
     flex-direction: column;
 }
@@ -78,10 +75,6 @@
 }
 
 .topic-section {
-    margin-right: 50px;
-    margin-left: 50px;
-    padding-right: 50px;
-    padding-left: 50px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -105,8 +98,7 @@
 }
 
 .topic-show-page {
-    margin-right: 100px;
-    margin-left: 100px;
+    max-width: 1000px;
     margin-top: 30px;
     height: 100%
 }
