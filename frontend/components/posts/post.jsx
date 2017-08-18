@@ -70,7 +70,7 @@ class Post extends React.Component {
         }
     }
 
-    toggleHeart() {
+    toggleLike() {
         if (this.props.session.currentUser) {
             if (this.props.currentPost.liked) {
                 return (
@@ -113,7 +113,7 @@ class Post extends React.Component {
                                 </Link>
                             </div>
                         </section>
-                        <button id='heart' className="white" onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleHeart()}</button>
+                        <button id='heart' onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleLike()}</button>
                         <h5 className="body">Likes: {this.props.currentPost.likes}</h5>
                         <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                         <Link to={`/user/${this.props.currentPost.author.id}`}>

@@ -14,7 +14,7 @@ class Header extends React.Component {
         if (this.props.currentUser === null) {
             return (
                 <div className='auth-links'>
-                    <Link to="/search"><button><i className="fa fa-search" aria-hidden="true"></i></button></Link>
+                    <Link to="/search"><button className="search-icon"><i className="fa fa-search" aria-hidden="true"></i></button></Link>
                     <Link to='/login' className='login-link'>Log In</Link>
                     &nbsp;or&nbsp;
                     <Link to='/signup' className='signup-link'>Sign Up</Link>
