@@ -2,6 +2,12 @@
   max-width: 1000px;
   margin-top: 50px;
   margin-bottom: 50px;
+  display: flex;
+  min-width: 100%;
+  justify-content: center;
+  input {
+    width: 800px;
+  }
 }
 
 .search-bar {
