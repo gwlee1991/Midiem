@@ -77,9 +77,6 @@ class PostForm extends React.Component {
         return (
             <div className="new-post-form">
                 <form onSubmit={this.handleSubmit}>
-                    <div className="button-container">
-                        <button onClick={this.upload} className="upload-button"><i className="fa fa-picture-o" aria-hidden="true"></i></button>
-                    </div>
                     <div>
                         {this.state.image_url === '' ? null :
                             <div className="post-cover-image">
@@ -114,6 +111,7 @@ class PostForm extends React.Component {
                     <br />
                     {this.renderErrors()}
                     <section className='new-post-submit-button-container'>
+                        <button onClick={this.upload} className="upload-button">Upload Cover Image</button>
                         <input className="new-post-submit-button" type="submit" value="Submit" />
                     </section>
                 </form>
@@ -122,4 +120,4 @@ class PostForm extends React.Component {
     }
 }
 
-export default PostForm
+export default PostForm;

@@ -20,6 +20,19 @@
     font-size: 34px;
 }
 
+.upload-button {
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 39px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.upload-button:hover {
+    background-color: lightblue;
+}
 
 
 .new-post-title-input::placeholder {
@@ -28,11 +41,6 @@
 
 textarea {
     resize: none;
-}
-
-.button-container {
-    display: flex;
-    justify-content: flex-start;
 }
 
 .new-post-submit-button-container {
