@@ -10,7 +10,7 @@ class Post extends React.Component {
         this.renderEditDelete = this.renderEditDelete.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.selectComment = this.selectComment.bind(this);
-        this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleLiked = this.handleLiked.bind(this);
     }
 
     componentDidMount() {
@@ -62,7 +62,7 @@ class Post extends React.Component {
         this.props.clearErrors();
     }
 
-    handleUpdate(postId) {
+    handleLiked(postId) {
         if (this.props.currentPost.liked) {
             return () => this.props.destroyLike(postId);
         } else {
@@ -113,7 +113,7 @@ class Post extends React.Component {
                                 </Link>
                             </div>
                         </section>
-                        <button id='heart' onClick={this.handleUpdate(this.props.currentPost.id)}>{this.toggleLike()}</button>
+                        <button id='heart' onClick={this.handleLiked(this.props.currentPost.id)}>{this.toggleLike()}</button>
                         <h5 className="body">Likes: {this.props.currentPost.likes}</h5>
                         <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                         <Link to={`/user/${this.props.currentPost.author.id}`}>
