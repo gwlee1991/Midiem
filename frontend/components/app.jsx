@@ -28,7 +28,6 @@ const App = () => (
         <ProtectedRoute exact path='/user/:userId/profile' component={UserContainer} />
         <Route exact path='/user/:userId' component={AuthorContainer} />
         <Route path='/search' component={SearchContainer} />
-        <Footer />
     </div>
 );
 
