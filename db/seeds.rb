@@ -9,6 +9,7 @@ User.destroy_all
 Topic.destroy_all
 Post.destroy_all
 Comment.destroy_all
+Follow.destroy_all
 
 guest = User.create(username: "guest", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/c_scale,w_32/v1501014959/default-user-image_gvyan3.png")
 andrew = User.create(username: "andrew", password: "password", image_url: "http://res.cloudinary.com/dbtdkqyeo/image/upload/v1500508529/faker_haj29z.jpg")
