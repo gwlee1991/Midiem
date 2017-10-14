@@ -1,4 +1,4 @@
-class FollowsController < ApplicationController
+class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new(follow_params)
     @follow.followee_id = current_user.id
@@ -10,10 +10,16 @@ class FollowsController < ApplicationController
   end
 
   def index
-    @follows = Follow.where(followee_id: params[:id])
+    @follows = Follow.where(followee_id: params[:id]).pluck(:follower_id)
+    @posts = Post.where(author_id: @follows)
+    render "api/posts/index"
   end
 
   def destroy
+    @follow = Follow.find_by(follower_id: params[:id], followee_id: current_user.id)
+    @user = @follow.follower
+    @follow.destroy!
+    render "api/users/show"
   end
 
   private
