@@ -5,6 +5,7 @@ import {selectPost, selectAllComments} from '../../reducers/selector';
 import {fetchComments, destroyComment} from '../../actions/comment_actions';
 
 const mapStateToProps = state => {
+    console.log(state.currentPost);
     return ({
         currentPost: state.currentPost,
         session: state.session,
