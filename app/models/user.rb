@@ -70,6 +70,13 @@ class User < ApplicationRecord
         self.session_token
     end
 
+    def following?(author_id)
+        self.followers.each do |follower|
+            return true if follower.id == author_id
+        end
+        false
+    end
+
     def is_password?(password)
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
