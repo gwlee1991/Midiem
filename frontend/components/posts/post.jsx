@@ -11,6 +11,7 @@ class Post extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.selectComment = this.selectComment.bind(this);
         this.handleLiked = this.handleLiked.bind(this);
+        this.handleFollow = this.handleFollow.bind(this);
     }
 
     componentDidMount() {
@@ -70,6 +71,15 @@ class Post extends React.Component {
         }
     }
 
+    handleFollow(authorId) {
+        const follow = { follower_id: authorId}
+        if(this.props.currentPost.author.following) {
+            return () => this.props.destroyFollow(authorId);
+        } else {
+            return () => this.props.createFollow(follow);
+        }
+    }
+
     toggleLike() {
         if (this.props.session.currentUser) {
             if (this.props.currentPost.liked) {
@@ -83,6 +93,20 @@ class Post extends React.Component {
             }
         } else {
             return "";
+        }
+    }
+
+    toggleFollow() {
+        if (this.props.session.currentUser) {
+            if (this.props.currentPost.author.following) {
+                return (
+                    <span>Followed</span>
+                );
+            } else {
+                return (
+                    <span>UnFollowed</span>
+                )
+            }
         }
     }
 
@@ -114,6 +138,7 @@ class Post extends React.Component {
                             </div>
                         </section>
                         <button id='heart' onClick={this.handleLiked(this.props.currentPost.id)}>{this.toggleLike()}</button>
+                        <button onClick={this.handleFollow(this.props.currentPost.author.id)}>{this.toggleFollow()}</button>
                         <h5 className="body">Likes: {this.props.currentPost.likes}</h5>
                         <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                         <Link to={`/user/${this.props.currentPost.author.id}`}>
