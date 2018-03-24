@@ -89,10 +89,14 @@ export const destroyLike = postId => dispatch => (
     LikeAPIUtil.destroyLike(postId).then(post => dispatch(receivePost(post)))
 );
 
-export const createFollow = follow => dispatch => (
-    FollowAPIUtil.createFollow(follow).then(post => dispatch(receivePost(post)))
+export const createFollow = (follow, currentPostId) => dispatch => (
+    FollowAPIUtil.createFollow(follow).then(() => {
+        fetchPost(currentPostId);
+    })
 );
 
-export const destroyFollow = authorId => dispatch => (
-    FollowAPIUtil.destroyFollow(authorId).then(post => dispatch(receivePost(post)))
+export const destroyFollow = (authorId, currentPostId) => dispatch => (
+    FollowAPIUtil.destroyFollow(authorId).then(() => {
+        fetchPost(currentPostId);
+    })
 );

@@ -74,9 +74,9 @@ class Post extends React.Component {
     handleFollow(authorId) {
         const follow = { follower_id: authorId}
         if(this.props.currentPost.author.following) {
-            return () => this.props.destroyFollow(authorId);
+            return () => this.props.destroyFollow(authorId, this.props.currentPost.id);
         } else {
-            return () => this.props.createFollow(follow);
+            return () => this.props.createFollow(follow, this.props.currentPost.id);
         }
     }
 
@@ -97,7 +97,7 @@ class Post extends React.Component {
     }
 
     toggleFollow() {
-        if (this.props.session.currentUser) {
+        if (this.props.session.currentUser && this.props.session.currentUser.id !== this.props.currentPost.author.id) {
             if (this.props.currentPost.author.following) {
                 return (
                     <span>Followed</span>

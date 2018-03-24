@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     clearState: () => dispatch(clearState()),
     createLike: like => dispatch(createLike(like)),
     destroyLike: id => dispatch(destroyLike(id)),
-    createFollow: follow => dispatch(createFollow(follow)),
-    destroyFollow: id => dispatch(destroyFollow(id)),
+    createFollow: (follow, currentPostId) => dispatch(createFollow(follow,currentPostId)),
+    destroyFollow: (id, currentPostId) => dispatch(destroyFollow(id, currentPostId)),
     clearErrors: () => dispatch(clearErrors())
 });
 
