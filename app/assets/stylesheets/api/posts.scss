@@ -117,10 +117,25 @@
 .post-show-author-info {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+    .author-info {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+    }
+    button {
+        border: 1px solid lightgray;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    button:hover {
+        background-color: lightblue;
+    }
 }
 
 .edit-button {

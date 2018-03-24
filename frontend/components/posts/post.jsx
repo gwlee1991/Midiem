@@ -16,6 +16,7 @@ class Post extends React.Component {
 
     componentDidMount() {
         this.props.fetchComments(this.props.match.params.postId);
+        const followbttn = document.querySelector('.followbttn');
     }
 
     componentWillMount() {
@@ -100,11 +101,11 @@ class Post extends React.Component {
         if (this.props.session.currentUser && this.props.session.currentUser.id !== this.props.currentPost.author.id) {
             if (this.props.currentPost.author.following) {
                 return (
-                    <span>Followed</span>
+                    <span>follow</span>
                 );
             } else {
                 return (
-                    <span>UnFollowed</span>
+                    <span>following</span>
                 )
             }
         }
@@ -136,9 +137,9 @@ class Post extends React.Component {
                                     </span>
                                 </Link>
                             </div>
+                            <button className="follow-bttn" onClick={this.handleFollow(this.props.currentPost.author.id)}>{this.toggleFollow()}</button>
                         </section>
                         <button id='heart' onClick={this.handleLiked(this.props.currentPost.id)}>{this.toggleLike()}</button>
-                        <button onClick={this.handleFollow(this.props.currentPost.author.id)}>{this.toggleFollow()}</button>
                         <h5 className="body">Likes: {this.props.currentPost.likes}</h5>
                         <h2 className='post-show-title title'>{this.props.currentPost.title}</h2>
                         <Link to={`/user/${this.props.currentPost.author.id}`}>
