@@ -91,12 +91,12 @@ export const destroyLike = postId => dispatch => (
 
 export const createFollow = (follow, currentPostId) => dispatch => (
     FollowAPIUtil.createFollow(follow).then(() => {
-        fetchPost(currentPostId);
+        dispatch(fetchPost(currentPostId));
     })
 );
 
 export const destroyFollow = (authorId, currentPostId) => dispatch => (
     FollowAPIUtil.destroyFollow(authorId).then(() => {
-        fetchPost(currentPostId);
+        dispatch(fetchPost(currentPostId));
     })
 );
