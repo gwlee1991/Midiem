@@ -126,6 +126,7 @@
         display: flex;
         align-items: center;
     }
+
     button {
         border: 1px solid lightgray;
         margin: 10px;
@@ -133,9 +134,19 @@
         border-radius: 20px;
     }
 
-    button:hover {
+    .following-bttn {
+        background-color: lightgray;
+        color: white;
+    }
+
+    .follow-bttn:hover {
         background-color: lightblue;
     }
+
+    .following-bttn:hover {
+        background-color: gray;
+    }
+
 }
 
 .edit-button {
