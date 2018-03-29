@@ -100,11 +100,11 @@ class Post extends React.Component {
         if (this.props.session.currentUser && this.props.session.currentUser.id !== this.props.currentPost.author.id) {
             if (this.props.currentPost.author.following) {
                 return (
-                    <button className="follow-bttn" onClick={this.handleFollow(this.props.currentPost.author.id)}>follow</button>
+                    <button className="following-bttn" onClick={this.handleFollow(this.props.currentPost.author.id)}>following</button>
                 );
             } else {
                 return (
-                    <button className="following-bttn" onClick={this.handleFollow(this.props.currentPost.author.id)}>following</button>
+                    <button className="follow-bttn" onClick={this.handleFollow(this.props.currentPost.author.id)}>follow</button>
                 )
             }
         }
