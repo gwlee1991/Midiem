@@ -15,7 +15,6 @@ const PostReducer = (state = nullPost, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_CURRENT_POST:
-            console.log("yo");
             const currentPost = action.currentPost;
             return merge({}, state, currentPost);
         case RECEIVE_POST_ERRORS:
