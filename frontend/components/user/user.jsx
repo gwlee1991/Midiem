@@ -7,7 +7,11 @@ class User extends React.Component {
     this.state = {
       username: this.props.currentUser.username,
       image_url: this.props.currentUser.image_url,
-      id: this.props.currentUser.id
+      id: this.props.currentUser.id,
+      followers: this.props.currentUser.followers,
+      follows: this.props.currentUser.follows,
+      followersCount: this.props.currentUser.followers_count,
+      followsCount: this.props.currentUser.follows_count
     };
     this.edited = false;
     this.handleClick = this.handleClick.bind(this);
