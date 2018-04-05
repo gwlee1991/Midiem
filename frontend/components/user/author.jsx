@@ -6,8 +6,32 @@ class Author extends React.Component{
     super(props);
   }
 
-  componentDidMount(){
-    this.props.fetchPosts();
+  componentWillMount(){
+    this.props.fetchPosts().then(() => {
+      let id = this.props.posts[0].author.id;
+      $.ajax({
+        method: "GET",
+        url: `/api/users/${id}`
+      }).then(user => {
+        this.setState({
+          follows: user.follows,
+          followsCount: user.follows_count,
+          followers: user.followers,
+          followersCount: user.followers_count
+        });
+      })
+    })
+  }
+
+  displayFollows(){
+    if(this.state){
+      return (
+        <div className="follows body">
+          <span className="body">follows: {this.state.followsCount}</span>
+          <span className="body">followers: {this.state.followersCount}</span>
+        </div>
+      );
+    }
   }
 
   render(){
@@ -20,6 +44,7 @@ class Author extends React.Component{
             </div>
             <div className="username title">
               <h2>{this.props.posts.length > 0 ? this.props.posts[0].author.username : ""}</h2>
+              {this.displayFollows()}
             </div>
           </div>
           <div className="tabs body">

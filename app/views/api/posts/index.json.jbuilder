@@ -9,6 +9,7 @@
             json.id post.author.id
             json.username post.author.username
             json.image_url post.author.image_url
+            json.following current_user.following?(post.author.id)
         end
         json.topic_id post.topic_id
     end
