@@ -33,6 +33,12 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  .follows {
+    span {
+      font-size: 20px;
+      padding: 10px;
+    }
+  }
 }
 
 .user-image {

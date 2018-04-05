@@ -51,6 +51,15 @@ class User extends React.Component {
     })
   }
 
+  displayFollows(){
+    return (
+      <div className="follows body">
+        <span className="body">follows: {this.state.followsCount}</span>
+        <span className="body">followers: {this.state.followersCount}</span>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="profile-container">
@@ -69,6 +78,7 @@ class User extends React.Component {
             </div>
             <div className="username title">
               <h2 className="body">{this.props.currentUser.username}</h2>
+              {this.displayFollows()}
               <p className="body greeting">This site was built with HTML/CSS/React/Redux/Javascript/Ruby on Rails within 9 days. Thank you for visiting</p>
             </div>
           </div>
